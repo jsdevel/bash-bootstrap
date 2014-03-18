@@ -1,0 +1,37 @@
+#!/bin/bash
+
+if [ -f ~/.bash_aliases ];then
+  mv ~/.bash_aliases ~/.bash_aliases.backup;
+fi
+
+if [ -z "`grep -o 'bash_aliases' ~/.bashrc`" ];then
+  cat >> ~/.bashrc <<~
+
+#Added by bootstrap-bash on "`date`"
+if [ -f ~/.bash_aliases ];then
+  . ~/.bash_aliases;
+fi
+###End bootstrap-bash additions
+~
+fi
+
+cat > ~/.bash_aliases <<!
+#!/bin/bash
+alias edivimrc='vim ~/.vimrc'
+alias edibashal='vim ~/.bash_aliases;. ~/.bash_aliases'
+alias edibashrc='vim ~/.bashrc;. ~/.bashrc'
+alias l="ls -Al"
+
+function cjobs()
+{
+   ps -e | less;
+}
+
+sshadd(){
+  ssh-add $HOME/.ssh/$1
+}
+
+if [ ~/.bash_aliases_custom ];then
+  . ~/.bash_aliases_custom;
+fi
+!
