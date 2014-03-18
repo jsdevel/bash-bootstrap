@@ -1,3 +1,4 @@
+"Added by bash-bootstrap on "Tue Mar 18 02:49:27 MST 2014"
 "Added by bash-bootstrap on "Tue Mar 18 01:56:04 MST 2014"
 set expandtab
 
@@ -24,3 +25,4 @@ let g:syntastic_always_populate_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_signs=0
+let g:syntastic_ignore_files = ['.\+\.json$']
