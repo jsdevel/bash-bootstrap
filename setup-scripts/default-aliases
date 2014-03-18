@@ -7,7 +7,7 @@ fi
 if [ -z "`grep -o 'bash_aliases' ~/.bashrc`" ];then
   cat >> ~/.bashrc <<~
 
-#Added by bootstrap-bash on "`date`"
+`addedHeader`
 if [ -f ~/.bash_aliases ];then
   . ~/.bash_aliases;
 fi
@@ -17,6 +17,7 @@ fi
 
 cat > ~/.bash_aliases <<!
 #!/bin/bash
+`addedHeader`
 alias edivimrc='vim ~/.vimrc'
 alias edibashal='vim ~/.bash_aliases;. ~/.bash_aliases'
 alias edibashrc='vim ~/.bashrc;. ~/.bashrc'
