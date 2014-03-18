@@ -18,3 +18,4 @@ set wrap "Wrap lines
 set number
 "set paste
 set colorcolumn=85
+execute pathogen#infect()
