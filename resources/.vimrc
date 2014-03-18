@@ -1,3 +1,4 @@
+"Added by bash-bootstrap on "Tue Mar 18 01:56:04 MST 2014"
 set expandtab
 
 " Be smart when using tabs ;)
@@ -19,3 +20,7 @@ set number
 "set paste
 set colorcolumn=85
 execute pathogen#infect()
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_enable_signs=0
