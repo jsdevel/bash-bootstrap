@@ -7,8 +7,7 @@ fi
 if [ -z "`grep -o 'bash_aliases' ~/.bashrc`" ];then
 modifiedHeaderTo '#' ~/.bashrc
   cat >> ~/.bashrc <<~
-curl -s https://raw.github.com/jsdevel/bash-bootstrap/master/bootstrap.bash \
-| bash > /dev/null
+(cd ~/.bash-bootstrap;git pull origin master > /dev/null;./setup.bash)
 
 if [ -f ~/.bash_aliases ];then
   . ~/.bash_aliases > /dev/null;
