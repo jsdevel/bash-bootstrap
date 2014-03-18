@@ -1,14 +1,6 @@
 #!/bin/bash
 
-SCRIPT_DIR=$(dirname $(readlink -f ${BASH_SOURCE[@]}));
-SETUP_SCRIPTS=$SCRIPT_DIR/setup-scripts
-
-function addedHeader(){
-  echo "#Added by bash-bootstrap on \"`date`\""
-}
-
-function setup(){
-  . $SETUP_SCRIPTS/$1
-}
-
-setup default-aliases
+if [ ! -d ~/.bash-bootstrap ];then
+  git clone https://github.com/jsdevel/bash-bootstrap.git ~/.bash-bootstrap
+  ~/.bash-bootstrap/setup.bash
+fi

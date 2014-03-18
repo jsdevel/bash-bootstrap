@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ -f ~/.vimrc ] && [ ! -f ~/.vimrc.backup ];then
+  cp ~/.vimrc ~/.vimrc.backup 
+  modifiedHeaderTo '"' ~/.vimrc.backup
+fi
+
+cat /dev/null > ~/.vimrc
+
+addedHeaderTo '"' ~/.vimrc
+
+cat "`rPath .vimrc`" >> ~/.vimrc
+
+mkdir -p ~/.vim
+
+if [ ! -d ~/.vim/.git ];then
+  git clone https://github.com/jsdevel/vim-bootstrap.git ~/.vim
+fi
+
+#Prevent cd from changing the directory
+(cd ~/.vim;git pull origin master;git submodule update --init);

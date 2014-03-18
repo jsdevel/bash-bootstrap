@@ -5,19 +5,20 @@ if [ -f ~/.bash_aliases ];then
 fi
 
 if [ -z "`grep -o 'bash_aliases' ~/.bashrc`" ];then
+modifiedHeaderTo '#' ~/.bashrc
   cat >> ~/.bashrc <<~
+curl -s https://raw.github.com/jsdevel/bash-bootstrap/master/bootstrap.bash \
+| bash > /dev/null
 
-`addedHeader`
 if [ -f ~/.bash_aliases ];then
-  . ~/.bash_aliases;
+  . ~/.bash_aliases > /dev/null;
 fi
-###End bootstrap-bash additions
 ~
 fi
 
+addedHeaderTo '#' ~/.bash_aliases
 cat > ~/.bash_aliases <<!
 #!/bin/bash
-`addedHeader`
 alias edivimrc='vim ~/.vimrc'
 alias edibashal='vim ~/.bash_aliases;. ~/.bash_aliases'
 alias edibashrc='vim ~/.bashrc;. ~/.bashrc'
