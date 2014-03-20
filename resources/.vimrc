@@ -20,9 +20,12 @@ set wrap "Wrap lines
 set number
 "set paste
 set colorcolumn=85
+
 execute pathogen#infect()
+
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_signs=0
 let g:syntastic_ignore_files = ['.\+\.json$']
+let g:syntastic_javascript_jshint_conf = '~/.bash-bootstrap/resources/.jsintrc-local'
