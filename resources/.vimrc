@@ -28,4 +28,4 @@ let g:syntastic_check_on_open=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_signs=0
 let g:syntastic_ignore_files = ['.\+\.json$']
-let g:syntastic_javascript_jshint_conf = '~/.bash-bootstrap/resources/.jsintrc-local'
+let g:syntastic_javascript_jshint_conf = '~/.bash-bootstrap/resources/.jshintrc-local'
