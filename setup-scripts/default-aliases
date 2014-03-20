@@ -7,7 +7,6 @@ fi
 if [ -z "`grep -o 'bash_aliases' ~/.bashrc`" ];then
 modifiedHeaderTo '#' ~/.bashrc
   cat >> ~/.bashrc <<~
-(cd ~/.bash-bootstrap;git pull origin master > /dev/null 2>&1;./setup.bash > /dev/null 2>&1)
 
 if [ -f ~/.bash_aliases ];then
   . ~/.bash_aliases > /dev/null;
@@ -18,6 +17,7 @@ fi
 addedHeaderTo '#' ~/.bash_aliases
 cat > ~/.bash_aliases <<!
 #!/bin/bash
+alias upbashboot='cd ~/.bash-bootstrap;git pull origin master;./setup.bash'
 alias edivimrc='vim ~/.vimrc'
 alias edibashal='vim ~/.bash_aliases;. ~/.bash_aliases'
 alias edibashrc='vim ~/.bashrc;. ~/.bashrc'
