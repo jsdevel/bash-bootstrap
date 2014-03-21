@@ -1,8 +1,11 @@
 #!/bin/bash
 
-if [ -f ~/.bash_aliases ] && [ ! -h ~/.bash_aliases ];then
+if [ -f ~/.bash_aliases ];then
   mv ~/.bash_aliases ~/.bash_aliases.backup;
   rm ~/.bash_aliases
+fi
+
+if [ ! -h ~/.bash_aliases ];then
   ln -s "`rPath .bash_aliases`" ~/.bash_aliases
 fi
 

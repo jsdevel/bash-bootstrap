@@ -3,6 +3,7 @@
 
 syntax on
 
+set hlsearch
 set expandtab
 set smarttab
 set shiftwidth=2
