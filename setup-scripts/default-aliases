@@ -1,7 +1,9 @@
 #!/bin/bash
 
-if [ -f ~/.bash_aliases ];then
+if [ -f ~/.bash_aliases ] && [ ! -h ~/.bash_aliases ];then
   mv ~/.bash_aliases ~/.bash_aliases.backup;
+  rm ~/.bash_aliases
+  ln -s "`rPath .bash_aliases`" ~/.bash_aliases
 fi
 
 if [ -z "`grep -o 'bash_aliases' ~/.bashrc`" ];then
@@ -13,26 +15,3 @@ if [ -f ~/.bash_aliases ];then
 fi
 ~
 fi
-
-addedHeaderTo '#' ~/.bash_aliases
-cat > ~/.bash_aliases <<!
-#!/bin/bash
-alias upbashboot='cd ~/.bash-bootstrap;git pull origin master;./setup.bash'
-alias edivimrc='vim ~/.vimrc'
-alias edibashal='vim ~/.bash_aliases;. ~/.bash_aliases'
-alias edibashrc='vim ~/.bashrc;. ~/.bashrc'
-alias l="ls -Al"
-
-function cjobs()
-{
-   ps -e | less;
-}
-
-sshadd(){
-  ssh-add $HOME/.ssh/$1
-}
-
-if [ ~/.bash_aliases_custom ];then
-  . ~/.bash_aliases_custom;
-fi
-!

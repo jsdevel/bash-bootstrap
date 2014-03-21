@@ -1,15 +1,10 @@
 "Added by bash-bootstrap on "Tue Mar 18 02:49:27 MST 2014"
 "Added by bash-bootstrap on "Tue Mar 18 01:56:04 MST 2014"
-set expandtab
 
-" Be smart when using tabs ;)
+set expandtab
 set smarttab
-"
-" " 1 tab == 4 spaces
 set shiftwidth=2
 set tabstop=2
-"
-" " Linebreak on 500 characters
 set lbr
 set tw=500
 
