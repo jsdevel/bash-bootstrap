@@ -1,6 +1,8 @@
 "Added by bash-bootstrap on "Tue Mar 18 02:49:27 MST 2014"
 "Added by bash-bootstrap on "Tue Mar 18 01:56:04 MST 2014"
 
+syntax on
+
 set expandtab
 set smarttab
 set shiftwidth=2

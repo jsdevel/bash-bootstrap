@@ -10,7 +10,7 @@ rm ~/.vimrc
 
 ln -s "`rPath .vimrc`" ~/.vimrc
 
-mkdir -p ~/.vim
+mkdir -p ~/.vim/autoload ~/.vim/bundle 2>/dev/null
 
 if [ ! -d ~/.vim/.git ];then
   git clone https://github.com/jsdevel/vim-bootstrap.git ~/.vim
@@ -19,6 +19,5 @@ fi
 #Prevent cd from changing the directory
 (cd ~/.vim;git pull origin master;git submodule update --init);
 
-mkdir -p ~/.vim/autoload ~/.vim/bundle;
 curl -Sso ~/.vim/autoload/pathogen.vim \
     https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
