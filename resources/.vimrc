@@ -18,6 +18,7 @@ set colorcolumn=85
 set background=dark
 
 noremap <C-n> :NERDTreeToggle<CR>
+noremap <C-i> <C-w><C-w>
 
 execute pathogen#infect()
 
