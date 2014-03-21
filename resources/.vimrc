@@ -21,6 +21,8 @@ set number
 "set paste
 set colorcolumn=85
 
+noremap <C-n> :NERDTreeToggle<CR>
+
 execute pathogen#infect()
 
 let g:syntastic_always_populate_loc_list=1
