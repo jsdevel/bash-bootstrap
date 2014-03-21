@@ -18,6 +18,9 @@ alias gst='git status'
 alias gca='git commit -a'
 alias gpu='git push origin'
 
+#npm shortcuts
+alias npu='npm publish'
+
 function cjobs()
 {
    ps -e | less;
