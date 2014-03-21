@@ -30,7 +30,7 @@ sshadd(){
   ssh-add $HOME/.ssh/$1
 }
 
-if [ ~/.bash_aliases_custom ];then
+if [ -f ~/.bash_aliases_custom ];then
   . ~/.bash_aliases_custom;
 fi
 
