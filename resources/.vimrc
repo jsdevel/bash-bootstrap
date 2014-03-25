@@ -1,6 +1,3 @@
-"Added by bash-bootstrap on "Tue Mar 18 02:49:27 MST 2014"
-"Added by bash-bootstrap on "Tue Mar 18 01:56:04 MST 2014"
-
 syntax on
 
 set hlsearch
@@ -19,10 +16,30 @@ set number
 "set paste
 set colorcolumn=85
 set background=dark
+let mapleader=','
 
 noremap <C-n> :NERDTreeToggle<CR>
 noremap <C-i> <C-w><C-w>
+noremap <leader>l <C-w>>
+noremap <leader>h <C-w><
+noremap <leader>k <C-w>+
+noremap <leader>j <C-w>-
 
+function! <SID>StripTrailingWhitespaces()
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  %s/\s\+$//e
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+"plugins
 execute pathogen#infect()
 
 let g:syntastic_always_populate_loc_list=1
