@@ -23,6 +23,13 @@
     "before":true,
     "after":true,
     "beforeEach":true,
-    "afterEach":true
+    "afterEach":true,
+
+    "xit":true,
+    "xdescribe":true,
+    "xbefore":true,
+    "xafter":true,
+    "xbeforeEach":true,
+    "xafterEach":true
   }
 }
