@@ -14,6 +14,7 @@ alias edisnip='vim ~/.vim/bundle/snipmate.vim/snippets'
 alias l="ls -Al"
 
 #git shortcuts
+alias gba='git branch'
 alias gst='git status'
 alias gca='git commit -a'
 alias gpu='git push origin'
