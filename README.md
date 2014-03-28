@@ -21,16 +21,19 @@ Prior to installing bash-bootstrap, vim and git need to be available in your $PA
 
 Once that's ready simply copy and run this command in a
 bash prompt:
-`curl -s https://raw.githubusercontent.com/jsdevel/bash-bootstrap/master/bootstrap.bash > /tmp/bash-bootstrap;bash /tmp/bash-bootstrap;. ~/.bashrc;rm /tmp/bash-bootstrap`
+
+`curl -s https://raw.githubusercontent.com/jsdevel/bash-bootstrap/master/bootstrap.bash > /tmp/bash-bootstrap;bash /tmp/bash-bootstrap;. ~/.bashrc; rm /tmp/bash-bootstrap`
 
 ##Tested environments
 These environments are known to support bash-bootstrap:
+
 1. macbook pro
 2. Fedora 20 LXDE
 3. Fedora 20 Gnome 3
 
 ##Customizing
 These are ways to allow bash-bootstrap to coexist with your existing setup:
+
 1. For your aliases, you can create `~/.bash_aliases_custom`.
 
 ##Contrubuting
