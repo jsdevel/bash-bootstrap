@@ -10,6 +10,11 @@ This is basic bootstrapping for bash.  It provides the following:
 The bootstrapping allows ways for you to customize your environment.  See customizing
 below.
 
+Out of the box, you'll have the following vim plugins configured:
+1. snipmate
+2. syntastic
+3. nerdtree
+
 ##Installing
 Prior to installing bash-bootstrap, vim and git need to be available in your $PATH.
 
