@@ -3,12 +3,13 @@ set -e
 
 #setup plugins
 if [ ! -d ~/.vim ];then
-  mkdir -p ~/.vim/autoload ~/.vim/bundle 2>/dev/null
   git clone https://github.com/jsdevel/vim-bootstrap.git ~/.vim
 fi
 
 #Prevent cd from changing the directory
 (cd ~/.vim;git pull origin master;git submodule update --init);
+
+mkdir -p ~/.vim/autoload ~/.vim/bundle 2>/dev/null
 
 curl -Sso ~/.vim/autoload/pathogen.vim \
     https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
