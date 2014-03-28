@@ -2,7 +2,7 @@
 
 al=~/.bash_aliases
 
-if [ -f $al ] && [ ! -h ~/;then
+if [ -f $al ] && [ ! -h $al ];then
   mv $al ${al}.backup;
 fi
 
