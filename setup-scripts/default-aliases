@@ -1,20 +1,21 @@
 #!/bin/bash
 
-if [ -f ~/.bash_aliases ];then
-  mv ~/.bash_aliases ~/.bash_aliases.backup;
-  rm ~/.bash_aliases
+al=~/.bash_aliases
+
+if [ -f $al ] && [ ! -h ~/;then
+  mv $al ${al}.backup;
 fi
 
-if [ ! -h ~/.bash_aliases ];then
-  ln -s "`rPath .bash_aliases`" ~/.bash_aliases
+if [ ! -h $al ];then
+  ln -s "`rPath .bash_aliases`" $al
 fi
 
 if [ -z "`grep -o 'bash_aliases' ~/.bashrc`" ];then
 modifiedHeaderTo '#' ~/.bashrc
   cat >> ~/.bashrc <<~
 
-if [ -f ~/.bash_aliases ];then
-  . ~/.bash_aliases > /dev/null;
+if [ -f $al ];then
+  . $al > /dev/null;
 fi
 ~
 fi
