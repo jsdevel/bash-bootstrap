@@ -11,9 +11,9 @@ The bootstrapping allows ways for you to customize your environment.  See custom
 below.
 
 ##Installing
-Before installing, you'll need vim and git installed and available in your $PATH.
+Prior to installing bash-bootstrap, vim and git need to be available in your $PATH.
 
-Once git and vim are installed on your path, simply copy and run this command in a
+Once that's ready simply copy and run this command in a
 bash prompt:
 `curl -s https://raw.githubusercontent.com/jsdevel/bash-bootstrap/master/bootstrap.bash > /tmp/bash-bootstrap;bash /tmp/bash-bootstrap;. ~/.bashrc;rm /tmp/bash-bootstrap`
 
