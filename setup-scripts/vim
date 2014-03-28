@@ -1,5 +1,14 @@
 #!/bin/bash
 
+if [ -d ~/.vim ];then
+  prompt -p 'This will remove your ~/vim directory.  Proceed?[y/n]' dec
+  case $dec in
+    y)rm -rf ~/.vim;;
+    n)echo 'Cancelling bash-bootstrap!';exit 0;;
+    *)echo 'Unknown decision!';exit 1;;
+  esac
+fi
+
 if [ -f ~/.vimrc ] && [ ! -f ~/.vimrc.backup ] && [ ! -h ~/.vimrc ];then
   cp ~/.vimrc ~/.vimrc.backup
   modifiedHeaderTo '"' ~/.vimrc.backup
@@ -14,7 +23,7 @@ ln -s "`rPath .vimrc`" ~/.vimrc
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle 2>/dev/null
 
-if [ ! -d ~/.vim/.git ];then
+if [ ! -d ~/.vim ];then
   git clone https://github.com/jsdevel/vim-bootstrap.git ~/.vim
 fi
 
