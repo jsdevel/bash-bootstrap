@@ -5,4 +5,13 @@ if [ ! -d ~/.bash-bootstrap ];then
   ~/.bash-bootstrap/setup.bash
 fi
 
+if [ -d ~/.vim ];then
+  read -p 'This will remove your ~/vim directory.  Proceed?[y/n]' dec
+  case $dec in
+    y)rm -rf ~/.vim;;
+    n)echo 'Cancelling bash-bootstrap!';exit 0;;
+    *)echo 'Unknown decision!';exit 1;;
+  esac
+fi
+
 . ~/.bashrc
