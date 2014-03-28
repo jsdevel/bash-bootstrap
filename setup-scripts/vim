@@ -1,12 +1,14 @@
 #!/bin/bash
 
 if [ -f ~/.vimrc ] && [ ! -f ~/.vimrc.backup ] && [ ! -h ~/.vimrc ];then
-  cp ~/.vimrc ~/.vimrc.backup 
+  cp ~/.vimrc ~/.vimrc.backup
   modifiedHeaderTo '"' ~/.vimrc.backup
   rm ~/.vimrc
 fi
 
-rm ~/.vimrc
+if [ -f ~/.vimrc ];then
+  rm ~/.vimrc
+fi
 
 ln -s "`rPath .vimrc`" ~/.vimrc
 
