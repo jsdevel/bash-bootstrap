@@ -17,7 +17,7 @@ alias l="ls -Al"
 alias gba='git branch'
 alias gst='git status'
 alias gca='git commit -a'
-alias gpu='git push origin'
+alias gpu='git push -u origin'
 
 #npm shortcuts
 alias npu='npm publish'
