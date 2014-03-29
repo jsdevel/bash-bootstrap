@@ -1,7 +1,7 @@
 #!/bin/bash
 #bash-bootstrap management
-alias cibashboot='cd ~/.bash-bootstrap;git add --all;git commit;git push origin master;'
-alias upbashboot='cd ~/.bash-bootstrap;git pull origin master;./setup.bash'
+alias cibashboot='prev=$CWD;cd ~/.bash-bootstrap;git add --all;git commit;git push origin master;cd $prev;'
+alias upbashboot='prev=$CWD;cd ~/.bash-bootstrap;git pull origin master;./setup.bash;cd $prev'
 
 #shortcuts for editing bash-bootstrap files
 alias edivimrc='vim ~/.vimrc'
