@@ -5,8 +5,9 @@ alias upbashboot='cd ~/.bash-bootstrap;git pull origin master;./setup.bash'
 
 #shortcuts for editing bash-bootstrap files
 alias edivimrc='vim ~/.vimrc'
-alias edibashal='vim ~/.bash_aliases;. ~/.bash_aliases'
-alias edibashrc='vim ~/.bashrc;. ~/.bashrc'
+alias edibashl='vim ~/.bash_aliases;. ~/.bash_aliases'
+alias edibashp='vim ~/.bash_profile;. ~/.bash_profile'
+alias edibasrc='vim ~/.bash_profile;. ~/.bash_profile'
 alias edisyntax='vim ~/.vim/bundle/syntastic/syntax_checkers'
 alias edisnip='vim ~/.vim/bundle/snipmate.vim/snippets'
 

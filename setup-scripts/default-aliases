@@ -10,9 +10,13 @@ if [ ! -h $al ];then
   ln -s "`rPath .bash_aliases`" $al
 fi
 
-if [ -z "`grep -o 'bash_aliases' ~/.bashrc`" ];then
-modifiedHeaderTo '#' ~/.bashrc
-  cat >> ~/.bashrc <<~
+if [ ! -f ~/.bash_profile ];then
+  touch ~/.bash_profile
+fi
+
+if [ -z "`grep -o 'bash_aliases' ~/.bash_profile`" ];then
+modifiedHeaderTo '#' ~/.bash_profile
+  cat >> ~/.bash_profile <<~
 
 if [ -f $al ];then
   . $al > /dev/null;
