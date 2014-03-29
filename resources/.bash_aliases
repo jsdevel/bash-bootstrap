@@ -1,7 +1,7 @@
 #!/bin/bash
 #bash-bootstrap management
-alias cibashboot='cd ~/.bash-bootstrap;git add --all;git commit;git push origin master;'
-alias upbashboot='cd ~/.bash-bootstrap;git pull origin master;./setup.bash'
+alias cibashboot='prev=$CWD;cd ~/.bash-bootstrap;git add --all;git commit;git push origin master;cd $prev;'
+alias upbashboot='prev=$CWD;cd ~/.bash-bootstrap;git pull origin master;./setup.bash;cd $prev'
 
 #shortcuts for editing bash-bootstrap files
 alias edivimrc='vim ~/.vimrc'
@@ -36,3 +36,9 @@ if [ -f ~/.bash_aliases_custom ];then
   . ~/.bash_aliases_custom;
 fi
 
+
+#Git branch in prompt.  Courtesy of @acarlos1000
+function parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
