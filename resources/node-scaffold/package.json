@@ -2,6 +2,7 @@
   "name": "__NAME__",
   "version": "0.0.0",
   "description": "__DESCRIPTION__",
+  "author":"__PROJECT_AUTHOR__",
   "scripts": {
     "jshint": "jshint lib && jshint --config .jshintrc-test test",
     "mocha": "mocha -w",

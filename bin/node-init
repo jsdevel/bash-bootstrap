@@ -17,7 +17,32 @@ if [ -d $proposedProjectDir ];then
 fi
 
 read -p 'Enter the description of the project:' PROJECT_DESCRIPTION
+if [ -z "$PROJECT_DESCRIPTION" ];then
+  echo "Project description is required!";
+fi
 read -p 'Enter the github url for the project:' GITHUB_URL
+if [ -z "$GITHUB_URL" ];then
+  echo "A github url is required!";
+fi
+read -p 'Enter the github username:' GITHUB_USERNAME
+if [ -z "$GITHUB_USERNAME" ];then
+  echo "A github username is required!";
+fi
+read -p 'Enter the year:' YEAR
+if [ -z "$YEAR" ];then
+  echo "A year is required!";
+fi
+read -p "Enter the project author's name:" PROJECT_AUTHOR
+if [ -z "$PROJECT_AUTHOR" ];then
+  echo "The project author's name is required!";
+fi
+
+read -p "Would you like to publish the initial version? [y/n]:" PUBLISH_INITIAL
+
+case "$PUBLISH_INITIAL" in
+  y|n);;
+  *)echo "Invalid option!  Exiting...";exit 1;;
+esac
 
 GITHUB_URL=${GITHUB_URL/%.git/}
 
@@ -27,23 +52,40 @@ cd $proposedProjectDir
 cp -r $nodeScaffold/* $proposedProjectDir
 cp -r $nodeScaffold/.* $proposedProjectDir 2>/dev/null
 
-sed -i "s|__NAME__|$projectName|" $proposedProjectDir/package.json
-sed -i "s|__NAME__|$projectName|" $proposedProjectDir/lib/index.js
-sed -i "s|__NAME__|$projectName|" $proposedProjectDir/test/index.js
-sed -i "s|__NAME__|$projectName|" $proposedProjectDir/integration/index.js
+#package.json
+sed -i "s|__NAME__|$projectName|g" $proposedProjectDir/package.json
+sed -i "s|__PROJECT_AUTHOR__|$PROJECT_AUTHOR|g" $proposedProjectDir/package.json
+sed -i "s|__DESCRIPTION__|$PROJECT_DESCRIPTION|g" $proposedProjectDir/package.json
+sed -i "s|__GITHUB_URL__|$GITHUB_URL|g" $proposedProjectDir/package.json
+
+#README
+sed -i "s|__NAME__|$projectName|g" $proposedProjectDir/README.md
+sed -i "s|__PROJECT_AUTHOR__|$PROJECT_AUTHOR|g" $proposedProjectDir/README.md
+sed -i "s|__DESCRIPTION__|$PROJECT_DESCRIPTION|g" $proposedProjectDir/README.md
+sed -i "s|__GITHUB_URL__|$GITHUB_URL|g" $proposedProjectDir/README.md
+sed -i "s|__GITHUB_USERNAME__|$GITHUB_USERNAME|g" $proposedProjectDir/README.md
+sed -i "s|__YEAR__|$YEAR|g" $proposedProjectDir/README.md
+
+#LICENSE
+sed -i "s|__PROJECT_AUTHOR__|$PROJECT_AUTHOR|g" $proposedProjectDir/LICENSE
+sed -i "s|__YEAR__|$YEAR|g" $proposedProjectDir/LICENSE
+
+#misc
+sed -i "s|__NAME__|$projectName|g" $proposedProjectDir/lib/index.js
+sed -i "s|__NAME__|$projectName|g" $proposedProjectDir/test/index.js
+sed -i "s|__NAME__|$projectName|g" $proposedProjectDir/integration/index.js
+
+
+git remote add origin ${GITHUB_URL}.git
 
 mv $proposedProjectDir/lib/index.js $proposedProjectDir/lib/$projectName.js
 mv $proposedProjectDir/test/index.js $proposedProjectDir/test/$projectName.js
 mv $proposedProjectDir/integration/index.js $proposedProjectDir/integration/$projectName.js
 
-if [ -n "$PROJECT_DESCRIPTION" ];then
-  sed -i "s|__DESCRIPTION__|$PROJECT_DESCRIPTION|" $proposedProjectDir/package.json
-fi
-
-if [ -n "$GITHUB_URL" ];then
-  sed -i "s|__GITHUB_URL__|$GITHUB_URL|" $proposedProjectDir/package.json
-  git remote add origin ${GITHUB_URL}.git
-fi
 
 npm install istanbul mocha should --save-dev
 npm test
+
+if [ "$PUBLISH_INITIAL" == "y" ];then
+  npm publish
+fi
