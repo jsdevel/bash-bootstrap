@@ -83,7 +83,7 @@ mv $proposedProjectDir/test/index.js $proposedProjectDir/test/$projectName.js
 mv $proposedProjectDir/integration/index.js $proposedProjectDir/integration/$projectName.js
 
 
-npm install istanbul mocha should --save-dev
+npm install istanbul mocha should jshint --save-dev
 npm test
 
 if [ "$PUBLISH_INITIAL" == "y" ];then
