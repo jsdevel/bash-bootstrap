@@ -1,0 +1,25 @@
+{
+  "name": "__NAME__",
+  "version": "0.0.0",
+  "description": "__DESCRIPTION__",
+  "scripts": {
+    "jshint": "jshint lib && jshint --config .jshintrc-test test",
+    "mocha": "mocha -w",
+    "integration": "mocha './integration/*.js'",
+    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha",
+    "report": "istanbul report cobertura",
+    "test": "npm run jshint && npm run cover && npm run integration"
+  },
+  "repository": {
+    "type": "git",
+    "url": "__GITHUB_URL__.git"
+  },
+  "keywords": [],
+  "contributors": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "__GITHUB_URL__/issues"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 SCRIPT_DIR=$(dirname $(readlink -f ${BASH_SOURCE[@]}));
+BIN_DIR=$SCRIPT_DIR/bin
 SETUP_SCRIPTS_DIR=$SCRIPT_DIR/setup-scripts
 RESOURCES_DIR=$SCRIPT_DIR/resources
 
@@ -20,5 +21,5 @@ function rPath(){
   echo "$RESOURCES_DIR/$1"
 }
 
-setup default-aliases
+setup bash
 setup vim

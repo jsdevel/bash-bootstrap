@@ -1,0 +1,49 @@
+#!/bin/bash
+BIN_DIR=$(dirname $(readlink -f ${BASH_SOURCE[0]}))
+nodeScaffold=$(dirname $BIN_DIR)/resources/node-scaffold
+ORIG_DIR=$PWD
+
+if [ -z "$1" ];then
+  echo "You haven't provided a name for your node project!"
+  exit 1;
+fi
+
+projectName=$1
+proposedProjectDir=$PWD/node-$1
+
+if [ -d $proposedProjectDir ];then
+  echo "$proposedProjectDir already exists!  Aborting..."
+  exit 1;
+fi
+
+read -p 'Enter the description of the project:' PROJECT_DESCRIPTION
+read -p 'Enter the github url for the project:' GITHUB_URL
+
+GITHUB_URL=${GITHUB_URL/%.git/}
+
+git init $proposedProjectDir
+cd $proposedProjectDir
+
+cp -r $nodeScaffold/* $proposedProjectDir
+cp -r $nodeScaffold/.* $proposedProjectDir 2>/dev/null
+
+sed -i "s|__NAME__|$projectName|" $proposedProjectDir/package.json
+sed -i "s|__NAME__|$projectName|" $proposedProjectDir/lib/index.js
+sed -i "s|__NAME__|$projectName|" $proposedProjectDir/test/index.js
+sed -i "s|__NAME__|$projectName|" $proposedProjectDir/integration/index.js
+
+mv $proposedProjectDir/lib/index.js $proposedProjectDir/lib/$projectName.js
+mv $proposedProjectDir/test/index.js $proposedProjectDir/test/$projectName.js
+mv $proposedProjectDir/integration/index.js $proposedProjectDir/integration/$projectName.js
+
+if [ -n "$PROJECT_DESCRIPTION" ];then
+  sed -i "s|__DESCRIPTION__|$PROJECT_DESCRIPTION|" $proposedProjectDir/package.json
+fi
+
+if [ -n "$GITHUB_URL" ];then
+  sed -i "s|__GITHUB_URL__|$GITHUB_URL|" $proposedProjectDir/package.json
+  git remote add origin ${GITHUB_URL}.git
+fi
+
+npm install istanbul mocha should --save-dev
+npm test

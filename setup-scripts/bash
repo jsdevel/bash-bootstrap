@@ -21,5 +21,6 @@ modifiedHeaderTo '#' ~/.bash_profile
 if [ -f $al ];then
   . $al > /dev/null;
 fi
+export PATH="$BIN_DIR:\$PATH";
 ~
 fi
