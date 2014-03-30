@@ -50,7 +50,7 @@ git init $proposedProjectDir
 cd $proposedProjectDir
 
 cp -r $nodeScaffold/* $proposedProjectDir
-cp -r $nodeScaffold/.* $proposedProjectDir 2>/dev/null
+cp $nodeScaffold/.* $proposedProjectDir 2> /dev/null
 
 #package.json
 sed -i "s|__NAME__|$projectName|g" $proposedProjectDir/package.json
