@@ -19,12 +19,13 @@ set background=dark
 let mapleader=','
 
 "Key Mapping
-noremap <C-n> :NERDTreeToggle<CR>
+noremap <C-n> :NERDTree<CR>
 noremap <C-i> <C-w><C-w>
 noremap <leader>l <C-w>>
 noremap <leader>h <C-w><
 noremap <leader>k <C-w>+
 noremap <leader>j <C-w>-
+noremap <leader>q :call SaveSessionAndQuit()<CR>
 
 "Whitespace
 function! <SID>StripTrailingWhitespaces()
@@ -42,6 +43,14 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 "bootstrap plugins
 execute pathogen#infect()
+
+"Sessions
+function SaveSessionAndQuit()
+  :wa
+  NERDTreeClose
+  mksession! .vimsession
+  :qa
+endfunction
 
 "plugin configuration
 let g:syntastic_always_populate_loc_list=1

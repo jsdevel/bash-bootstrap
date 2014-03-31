@@ -23,6 +23,9 @@ alias gpu='git push -u origin'
 #npm shortcuts
 alias npu='npm publish'
 
+#vim shortcuts
+alias svim='touch .vimsession;vim -S .vimsession'
+
 function cjobs()
 {
    ps -e | less;
