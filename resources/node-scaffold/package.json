@@ -1,5 +1,6 @@
 {
   "name": "__NAME__",
+  "main": "lib/__NAME__.js",
   "version": "0.0.0",
   "description": "__DESCRIPTION__",
   "author":"__PROJECT_AUTHOR__",
