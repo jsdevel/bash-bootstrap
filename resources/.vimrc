@@ -45,7 +45,7 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 execute pathogen#infect()
 
 "Sessions
-function SaveSessionAndQuit()
+function! SaveSessionAndQuit()
   :wa
   NERDTreeClose
   mksession! .vimsession
