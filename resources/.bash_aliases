@@ -19,6 +19,7 @@ alias edisyntax='vim ~/.vim/bundle/syntastic/syntax_checkers'
 alias edisnip='vim ~/.vim/bundle/snipmate.vim/snippets'
 
 #general shortcuts
+alias ls="ls --color"
 alias l="ls -Al"
 
 #git shortcuts
