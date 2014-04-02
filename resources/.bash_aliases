@@ -1,6 +1,6 @@
 #!/bin/bash
 #bash-bootstrap management
-alias cibashboot='prev=$CWD;cd ~/.bash-bootstrap;git add --all;git commit;git push origin master;cd $prev;'
+alias cibashboot='(cd ~/.bash-bootstrap && git add --all && git commit && git push origin master);'
 alias upbashboot='\
   prev=$CWD;\
   cd ~/.bash-bootstrap;\
@@ -27,7 +27,7 @@ alias gb='git branch'
 alias gst='git status'
 alias gca='git commit -a'
 alias gpu='git push -u origin'
-alias gpl='git push -u origin'
+alias gpl='git pull'
 
 #npm shortcuts
 alias npu='npm publish'
