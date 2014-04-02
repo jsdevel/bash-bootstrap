@@ -23,10 +23,11 @@ alias ls="ls --color"
 alias l="ls -Al"
 
 #git shortcuts
-alias gba='git branch'
+alias gb='git branch'
 alias gst='git status'
 alias gca='git commit -a'
 alias gpu='git push -u origin'
+alias gpl='git push -u origin'
 
 #npm shortcuts
 alias npu='npm publish'
