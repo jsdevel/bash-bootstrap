@@ -22,4 +22,5 @@ function rPath(){
 }
 
 setup bash
+setup git
 setup vim
