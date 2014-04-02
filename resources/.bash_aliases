@@ -25,8 +25,10 @@ alias l="ls -Al"
 #git shortcuts
 alias gb='git branch'
 alias gst='git status'
+alias gc='git commit'
 alias gca='git commit -a'
-alias gpu='git push -u origin'
+alias gpu='git push'
+alias grv='git remote -v'
 alias gpl='git pull'
 
 #npm shortcuts
