@@ -13,6 +13,7 @@ set si "Smart indent
 set wrap "Wrap lines
 
 set number
+set updatetime=50
 "set paste
 set colorcolumn=85
 set background=dark
@@ -60,3 +61,5 @@ let g:syntastic_enable_signs=0
 let g:syntastic_ignore_files = ['.\+\.json$']
 let g:syntastic_javascript_jshint_conf = '~/.bash-bootstrap/resources/.jshintrc-local'
 let NERDTreeShowHidden=1
+let g:gitgutter_realtime=1
+let g:gitgutter_eager=1
