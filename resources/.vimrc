@@ -21,7 +21,10 @@ let mapleader=','
 
 "Key Mapping
 noremap <C-n> :NERDTree<CR>
-noremap <C-i> <C-w><C-w>
+noremap <C-h> <C-w><C-h>
+noremap <C-j> <C-w><C-j>
+noremap <C-k> <C-w><C-k>
+noremap <C-l> <C-w><C-l>
 noremap <leader>l <C-w>>
 noremap <leader>h <C-w><
 noremap <leader>k <C-w>+
