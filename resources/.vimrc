@@ -1,5 +1,6 @@
 syntax on
 
+set autowriteall
 set hlsearch
 set expandtab
 set smarttab
@@ -21,6 +22,12 @@ let mapleader=','
 
 "Key Mapping
 noremap <C-n> :NERDTree<CR>
+
+noremap <C-Right> <C-w>H
+noremap <C-Down> <C-w>J
+noremap <C-Up> <C-w>K
+noremap <C-Left> <C-w>L
+
 noremap <C-h> <C-w><C-h>
 noremap <C-j> <C-w><C-j>
 noremap <C-k> <C-w><C-k>
@@ -29,6 +36,7 @@ noremap <leader>l <C-w>>
 noremap <leader>h <C-w><
 noremap <leader>k <C-w>+
 noremap <leader>j <C-w>-
+noremap <leader>z :sus <CR>
 noremap <leader>q :call SaveSessionAndQuit()<CR>
 
 "Whitespace
