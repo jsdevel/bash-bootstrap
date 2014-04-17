@@ -1,8 +1,5 @@
-[![Build Status](https://travis-ci.org/__GITHUB_USERNAME__/node-__NAME__.png)](https://travis-ci.org/__GITHUB_USERNAME__/node-__NAME__)
-
-# __NAME__
-
-__DESCRIPTION__
+# __NAME__ [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coveralls Status][coveralls-image]][coveralls-url]
+> __DESCRIPTION__
 
 ##LICENSE
 ``````
@@ -28,3 +25,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ``````
+
+[downloads-image]: http://img.shields.io/npm/dm/__NAME__.svg
+[npm-url]: https://npmjs.org/package/__NAME__
+[npm-image]: http://img.shields.io/npm/v/__NAME__.svg
+
+[travis-url]: https://travis-ci.org/__GITHUB_USERNAME__/node-__NAME__
+[travis-image]: http://img.shields.io/travis/__GITHUB_USERNAME__/node-__NAME__.svg
+
+[coveralls-url]: https://coveralls.io/r/__GITHUB_USERNAME__/node-__NAME__
+[coveralls-image]: http://img.shields.io/coveralls/__GITHUB_USERNAME__/node-__NAME__/master.svg
