@@ -36,8 +36,11 @@ noremap <leader>l <C-w>>
 noremap <leader>h <C-w><
 noremap <leader>k <C-w>+
 noremap <leader>j <C-w>-
+noremap <leader>f :tab split<CR>
+noremap <leader>F :tabc<CR>
 noremap <leader>z :sus <CR>
 noremap <leader>q :call SaveSessionAndQuit()<CR>
+noremap <leader>s :w<CR>
 
 "Whitespace
 function! <SID>StripTrailingWhitespaces()
@@ -51,7 +54,9 @@ function! <SID>StripTrailingWhitespaces()
   let @/=_s
   call cursor(l, c)
 endfunction
+
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+au BufRead,BufNewFile *.json set filetype=json
 
 "bootstrap plugins
 execute pathogen#infect()
@@ -65,11 +70,11 @@ function! SaveSessionAndQuit()
 endfunction
 
 "plugin configuration
-let g:syntastic_always_populate_loc_list=1
+let g:syntastic_always_populate_loc_list=0
 let g:syntastic_check_on_open=0
-let g:syntastic_auto_loc_list=1
-let g:syntastic_enable_signs=0
-let g:syntastic_ignore_files = ['.\+\.json$']
+let g:syntastic_auto_loc_list=0
+let g:syntastic_enable_signs=1
+"let g:syntastic_ignore_files = ['.\+\.json$']
 let g:syntastic_javascript_jshint_conf = '~/.bash-bootstrap/resources/.jshintrc-local'
 let NERDTreeShowHidden=1
 let g:gitgutter_realtime=1
