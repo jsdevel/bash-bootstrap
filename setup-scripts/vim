@@ -9,10 +9,10 @@ fi
 #Prevent cd from changing the directory
 (cd ~/.vim;git pull origin master;git submodule update --init);
 
-mkdir -p ~/.vim/autoload ~/.vim/bundle 2>/dev/null
+mkdir -p ~/.vim/autoload ~/.vim/bundle
 
-curl -Sso ~/.vim/autoload/pathogen.vim \
-    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+curl -LSso ~/.vim/autoload/pathogen.vim \
+  https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
 #setup .vimrc
 if [ -f ~/.vimrc ] && [ ! -f ~/.vimrc.backup ] && [ ! -h ~/.vimrc ];then
