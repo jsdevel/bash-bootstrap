@@ -55,11 +55,8 @@ function! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-au BufRead,BufNewFile *.json set filetype=json
-
-"bootstrap plugins
-execute pathogen#infect()
+"autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+"au BufRead,BufNewFile *.json set filetype=json
 
 "Sessions
 function! SaveSessionAndQuit()
@@ -73,9 +70,13 @@ endfunction
 let g:syntastic_always_populate_loc_list=0
 let g:syntastic_check_on_open=0
 let g:syntastic_auto_loc_list=0
-let g:syntastic_enable_signs=1
+let g:syntastic_enable_signs=0
 "let g:syntastic_ignore_files = ['.\+\.json$']
 let g:syntastic_javascript_jshint_conf = '~/.bash-bootstrap/resources/.jshintrc-local'
 let NERDTreeShowHidden=1
 let g:gitgutter_realtime=1
 let g:gitgutter_eager=1
+
+"bootstrap plugins
+execute pathogen#infect()
+
