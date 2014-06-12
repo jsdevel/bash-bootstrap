@@ -14,7 +14,7 @@ set si "Smart indent
 set wrap "Wrap lines
 
 set number
-set updatetime=50
+set updatetime=1000
 "set paste
 set colorcolumn=85
 set background=dark
