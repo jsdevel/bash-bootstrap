@@ -55,8 +55,7 @@ function! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 
-"autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-"au BufRead,BufNewFile *.json set filetype=json
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 "Sessions
 function! SaveSessionAndQuit()
