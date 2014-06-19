@@ -18,6 +18,7 @@
   "trailing":true,
   "undef":true,
   "globals":{
+    "APP":true,
     "it":true,
     "describe":true,
     "before":true,
