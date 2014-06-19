@@ -9,7 +9,6 @@
     "mocha": "mocha -w",
     "integration": "mocha './integration/*.js'",
     "cover": "istanbul cover _mocha -- -R spec && cat ./coverage/lcov.info | coveralls -v && rm -rf coverage",
-    "report": "istanbul report cobertura",
     "test": "npm run jshint && npm run cover && npm run integration"
   },
   "repository": {
