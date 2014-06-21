@@ -3,7 +3,7 @@
   "main": "lib/__NAME__.js",
   "version": "0.0.0",
   "description": "__DESCRIPTION__",
-  "author":"__PROJECT_AUTHOR__",
+  "author": "__PROJECT_AUTHOR__",
   "scripts": {
     "jshint": "jshint lib && jshint --config .jshintrc-test test",
     "mocha": "mocha -w",
@@ -21,6 +21,8 @@
   "bugs": {
     "url": "__GITHUB_URL__/issues"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "coveralls": "~2.10.0"
+  },
   "dependencies": {}
 }
