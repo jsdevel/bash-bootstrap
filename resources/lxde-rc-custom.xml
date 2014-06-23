@@ -1,0 +1,30 @@
+<keybind key="A-S-4">
+  <action name="Execute">
+    <command>lxde-take-screenshot</command>
+  </action>
+</keybind>
+<keybind key="XF86AudioMute">
+  <action name="Execute">
+    <command>amixer sset Master toggle</command>
+  </action>
+</keybind>
+<keybind key="XF86AudioLowerVolume">
+  <action name="Execute">
+    <command>amixer sset Master 5%-</command>
+  </action>
+</keybind>
+<keybind key="XF86AudioRaiseVolume">
+  <action name="Execute">
+    <command>amixer sset Master 5%+</command>
+  </action>
+</keybind>
+<keybind key="XF86Calculator">
+  <action name="Execute">
+    <command>galculator</command>
+  </action>
+</keybind>
+<keybind key="XF86TouchpadToggle">
+  <action name="Execute">
+    <command>xinput-toggle-touchpad</command>
+  </action>
+</keybind>

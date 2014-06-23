@@ -1,0 +1,10 @@
+#!/bin/bash
+
+touchpad=`xinput --list | grep -i touchpad | grep -o 'id=[0-9]*' | grep -o '[0-9]*'`
+currentState=`xinput --list-props $touchpad | grep -i 'Device Enabled' | grep -o '[0-9]*$'`
+
+if [ "$currentState" == '1' ];then
+  xinput --disable $touchpad
+else
+  xinput --enable $touchpad
+fi

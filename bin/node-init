@@ -16,28 +16,28 @@ if [ -d $proposedProjectDir ];then
   exit 1;
 fi
 
-read -p 'Enter the description of the project:' PROJECT_DESCRIPTION
+read -p 'Enter the description of the project: ' PROJECT_DESCRIPTION
 if [ -z "$PROJECT_DESCRIPTION" ];then
   echo "Project description is required!";
 fi
-read -p 'Enter the github url for the project:' GITHUB_URL
+read -p 'Enter the github url for the project: ' GITHUB_URL
 if [ -z "$GITHUB_URL" ];then
   echo "A github url is required!";
 fi
-read -p 'Enter the github username:' GITHUB_USERNAME
+read -p 'Enter the github username: ' GITHUB_USERNAME
 if [ -z "$GITHUB_USERNAME" ];then
   echo "A github username is required!";
 fi
-read -p 'Enter the year:' YEAR
+read -p 'Enter the year: ' YEAR
 if [ -z "$YEAR" ];then
   echo "A year is required!";
 fi
-read -p "Enter the project author's name:" PROJECT_AUTHOR
+read -p "Enter the project author's name: " PROJECT_AUTHOR
 if [ -z "$PROJECT_AUTHOR" ];then
   echo "The project author's name is required!";
 fi
 
-read -p "Would you like to publish the initial version? [y/n]:" PUBLISH_INITIAL
+read -p "Would you like to publish the initial version? [y/n]: " PUBLISH_INITIAL
 
 case "$PUBLISH_INITIAL" in
   y|n);;
