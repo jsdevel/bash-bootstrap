@@ -1,0 +1,5 @@
+#!/bin/bash
+
+log="<table border='1'>`git --no-pager log --no-merges --pretty=format:"<tr><td style='white-space:nowrap;vertical-align:top;'>%an</td><td style='white-space:nowrap;vertical-align:top;'>%ar</td><td style='vertical-align:top;'><b>%s</b></td></tr>" -20`</table>";
+echo "$log" > $(dirname $(dirname $(readlink -f ${BASH_SOURCE[0]})))/reports/CHANGELOG;
+

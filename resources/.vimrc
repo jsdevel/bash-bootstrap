@@ -1,9 +1,11 @@
 syntax on
 
+set nocp
 set autowriteall
 set hlsearch
 set expandtab
 set smarttab
+set smartindent
 set shiftwidth=2
 set tabstop=2
 set lbr
@@ -13,9 +15,10 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+
 set number
 set updatetime=1000
-"set paste
+set paste
 set colorcolumn=85
 set background=dark
 let mapleader=','
@@ -41,6 +44,17 @@ noremap <leader>F :tabc<CR>
 noremap <leader>z :sus <CR>
 noremap <leader>q :call SaveSessionAndQuit()<CR>
 noremap <leader>s :w<CR>
+noremap <leader>t :call TidyFoo()<CR>
+
+function! TidyFoo()
+  let filename = expand('%:p')
+  python << EOF
+import vim
+from subprocess import call
+call(["tidy", "-iqm", "--show-errors", "0", "--show-warnings", "0", "--tidy-mark", "0", vim.eval("expand('%:p')")])
+EOF
+  :e
+endfunction
 
 "Whitespace
 function! <SID>StripTrailingWhitespaces()
