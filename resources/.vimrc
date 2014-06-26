@@ -1,6 +1,5 @@
 syntax on
 
-set nocp
 set autowriteall
 set hlsearch
 set expandtab
@@ -18,7 +17,7 @@ set wrap "Wrap lines
 
 set number
 set updatetime=1000
-set paste
+set nopaste
 set colorcolumn=85
 set background=dark
 let mapleader=','
@@ -35,16 +34,25 @@ noremap <C-h> <C-w><C-h>
 noremap <C-j> <C-w><C-j>
 noremap <C-k> <C-w><C-k>
 noremap <C-l> <C-w><C-l>
-noremap <leader>l <C-w>>
-noremap <leader>h <C-w><
-noremap <leader>k <C-w>+
-noremap <leader>j <C-w>-
 noremap <leader>f :tab split<CR>
 noremap <leader>F :tabc<CR>
-noremap <leader>z :sus <CR>
+noremap <leader>l <C-w>>
+noremap <leader>h <C-w><
+noremap <leader>j <C-w>-
+noremap <leader>k <C-w>+
+noremap <leader>n :call HandleNumberSetting()<CR>
 noremap <leader>q :call SaveSessionAndQuit()<CR>
 noremap <leader>s :w<CR>
 noremap <leader>t :call TidyFoo()<CR>
+noremap <leader>z :sus <CR>
+
+function! HandleNumberSetting()
+  if &number
+    set nonumber
+  else
+    set number
+  endif
+endfunction
 
 function! TidyFoo()
   let filename = expand('%:p')
