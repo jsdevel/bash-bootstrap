@@ -5,12 +5,8 @@
   "description": "__DESCRIPTION__",
   "author": "__PROJECT_AUTHOR__",
   "scripts": {
-    "jshint": "jshint lib && jshint --config ./test/.jshintrc test",
-    "mocha": "mocha -w",
-    "integration": "mocha './integration/*.js'",
-    "cover": "istanbul cover _mocha && cat ./coverage/lcov.info | coveralls -v && rm -rf coverage",
-    "pretest": "npm run jshint",
-    "test": "npm run jshint && npm run cover && npm run integration"
+    "pretest": "jshint lib && jshint --config ./test/.jshintrc test",
+    "test": "istanbul cover _mocha && cat ./coverage/lcov.info | coveralls -v && rm -rf coverage"
   },
   "repository": {
     "type": "git",
