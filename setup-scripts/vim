@@ -11,9 +11,6 @@ fi
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 
-curl -LSso ~/.vim/autoload/pathogen.vim \
-  https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
-
 #setup .vimrc
 if [ -f ~/.vimrc ] && [ ! -f ~/.vimrc.backup ] && [ ! -h ~/.vimrc ];then
   cp ~/.vimrc ~/.vimrc.backup

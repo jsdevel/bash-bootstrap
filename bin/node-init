@@ -9,7 +9,7 @@ if [ -z "$1" ];then
 fi
 
 projectName=$1
-proposedProjectDir=$PWD/node-$1
+proposedProjectDir=$PWD/$1
 
 if [ -d $proposedProjectDir ];then
   echo "$proposedProjectDir already exists!  Aborting..."
@@ -73,13 +73,11 @@ sed -i'' "s|__YEAR__|$YEAR|g" $proposedProjectDir/LICENSE
 #misc
 sed -i'' "s|__NAME__|$projectName|g" $proposedProjectDir/lib/index.js
 sed -i'' "s|__NAME__|$projectName|g" $proposedProjectDir/test/index.js
-sed -i'' "s|__NAME__|$projectName|g" $proposedProjectDir/integration/index.js
 
 git remote add origin ${GITHUB_URL}.git
 
 mv $proposedProjectDir/lib/index.js $proposedProjectDir/lib/$projectName.js
 mv $proposedProjectDir/test/index.js $proposedProjectDir/test/$projectName.js
-mv $proposedProjectDir/integration/index.js $proposedProjectDir/integration/$projectName.js
 
 
 npm install istanbul mocha should jshint --save-dev

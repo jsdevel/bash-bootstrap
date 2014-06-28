@@ -100,4 +100,3 @@ let g:gitgutter_eager=1
 
 "bootstrap plugins
 execute pathogen#infect()
-
