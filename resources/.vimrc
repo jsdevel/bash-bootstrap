@@ -42,7 +42,7 @@ noremap <leader>j <C-w>-
 noremap <leader>k <C-w>+
 noremap <leader>n :call HandleNumberSetting()<CR>
 noremap <leader>q :call SaveSessionAndQuit()<CR>
-noremap <leader>s :w<CR>
+noremap <leader>s :wa<CR>
 noremap <leader>t :call TidyFoo()<CR>
 noremap <leader>z :sus <CR>
 
