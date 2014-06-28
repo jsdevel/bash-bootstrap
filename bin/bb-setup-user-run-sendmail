@@ -1,0 +1,91 @@
+#!/bin/bash
+
+set -e
+
+group="`id -gn`"
+sendmail_option="define(\`confRUN_AS_USER', \`$USER:$group')"
+clientmqueue=/var/spool/clientmqueue
+mqueue=/var/spool/mqueue
+etcmail=/etc/mail
+sendmail_mc=/etc/mail/sendmail.mc
+sendmail_cf=/etc/mail/sendmail.cf
+sendmail_mc_backup=/etc/mail/sendmail.mc.backup
+
+MQUEUE_NOT_DIRECTORY=1
+ETCMAIL_NOT_DIRECTORY=2
+SENDMAIL_MC_NOT_FILE=3
+RUNNING_AS_ROOT=4
+UNKNOWN_OPTION=5
+
+if [ "`whoami`" == "root" ]; then
+  echo "Don't run this as root!  We'll sudo where approprate.  Exiting..." && exit $RUNNING_AS_ROOT
+fi
+
+if [ ! -d "$mqueue" ];then
+  echo "$mqueue wasn't a directory!" && exit $MQUEUE_NOT_DIRECTORY
+fi
+
+if [ ! -d "$etcmail" ];then
+  echo "$etcmail wasn't a directory!" && exit $ETCMAIL_NOT_DIRECTORY
+fi
+
+if [ ! -f "$sendmail_mc" ];then
+  echo "$sendmail_mc wasn't a file!" && exit $SENDMAIL_MC_NOT_FILE
+fi
+
+if [ -d "$clientmqueue" ];then
+  clientmqueue_message="* $clientmqueue"
+fi
+
+cat <<~
+We'll perform the following actions:
+
+  1. pkill sendmail
+  2. Change ownership to $USER:$group for the following directories:
+    * $mqueue
+    * $etcmail
+    $clientmqueue_message
+  3. Append "$sendmail_option" to $sendmail_mc
+  4. Use m4 to generate sendmail.cf
+
+~
+
+read -p "Is this OK? [y/n]: " choice
+case $choice in
+  y);;
+  n)echo "Exiting..." && exit;;
+  *)echo "unknown option!  You must choose either y or n.  Exiting..." && exit $UNKNOWN_OPTION;;
+esac
+
+echo "First stopping sendmail with 'pkill sendmail'"
+sudo pkill sendmail > /dev/null 2>&1 || echo '' > /dev/null
+
+echo "Setting filesystem permissioins..."
+sudo chown -R $USER:$group /var/spool/mqueue
+sudo chmod 700 /var/spool/mqueue
+sudo chgrp -R $USER /etc/mail
+sudo chmod -R g+r /etc/mail
+sudo chmod g+s /etc/mail
+
+if [ -n "$clientmqueue_message" ];then
+  sudo chown -R $USER:$group /var/spool/clientmqueue
+fi
+
+if [ ! -f "$sendmail_mc_backup" ];then
+  echo "Backing up $sendmail_mc to $sendmail_mc_backup"
+  sudo cp $sendmail_mc $sendmail_mc_backup
+fi
+
+if [ -n "`grep -o confRUN_AS_USER $sendmail_mc`" ];then
+  echo "confRUN_AS_USER already defined in $sendmail_mc!"
+  echo "You may want to verify that the correct user has been defined therein."
+  echo "Skipping..."
+else
+  echo "Appending \"$sendmail_option\" to $sendmail_mc"
+  echo "$sendmail_option" | sudo tee -a $sendmail_mc
+fi
+
+echo "Regenerating sendmail.cf with m4..."
+m4 $sendmail_mc | sudo tee $sendmail_cf
+
+echo "Done!  You can now start sendmail..."
