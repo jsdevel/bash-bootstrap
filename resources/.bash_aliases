@@ -15,6 +15,11 @@ alias edisnip='vim ~/.vim/bundle/snipmate.vim/snippets'
 alias ls="ls --color"
 alias l="ls -Al"
 
+#job aliases
+alias j='jobs'
+alias b='bg'
+alias f='fg'
+
 #git shortcuts
 alias gb='git branch'
 alias gst='git status'
@@ -23,6 +28,8 @@ alias gca='git commit -a'
 alias gpu='git push'
 alias grv='git remote -v'
 alias gpl='git pull'
+alias grh='git reset --hard'
+alias grh1='git reset --hard HEAD^'
 
 #npm shortcuts
 alias npu='npm publish'
