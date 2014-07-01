@@ -53,13 +53,13 @@ cp -r $nodeScaffold/* $proposedProjectDir
 cp $nodeScaffold/.* $proposedProjectDir 2> /dev/null
 
 #package.json
-sed -i'' "s|__NAME__|$projectName|g" $proposedProjectDir/package.json
+sed -i'' "s|__NAME__|${projectName#node-}|g" $proposedProjectDir/package.json
 sed -i'' "s|__PROJECT_AUTHOR__|$PROJECT_AUTHOR|g" $proposedProjectDir/package.json
 sed -i'' "s|__DESCRIPTION__|$PROJECT_DESCRIPTION|g" $proposedProjectDir/package.json
 sed -i'' "s|__GITHUB_URL__|$GITHUB_URL|g" $proposedProjectDir/package.json
 
 #README
-sed -i'' "s|__NAME__|$projectName|g" $proposedProjectDir/README.md
+sed -i'' "s|__NAME__|${projectName#node-}|g" $proposedProjectDir/README.md
 sed -i'' "s|__PROJECT_AUTHOR__|$PROJECT_AUTHOR|g" $proposedProjectDir/README.md
 sed -i'' "s|__DESCRIPTION__|$PROJECT_DESCRIPTION|g" $proposedProjectDir/README.md
 sed -i'' "s|__GITHUB_URL__|$GITHUB_URL|g" $proposedProjectDir/README.md
@@ -71,16 +71,16 @@ sed -i'' "s|__PROJECT_AUTHOR__|$PROJECT_AUTHOR|g" $proposedProjectDir/LICENSE
 sed -i'' "s|__YEAR__|$YEAR|g" $proposedProjectDir/LICENSE
 
 #misc
-sed -i'' "s|__NAME__|$projectName|g" $proposedProjectDir/lib/index.js
-sed -i'' "s|__NAME__|$projectName|g" $proposedProjectDir/test/index.js
+sed -i'' "s|__NAME__|${projectName#node-}|g" $proposedProjectDir/lib/index.js
+sed -i'' "s|__NAME__|${projectName#node}|g" $proposedProjectDir/test/index.js
 
 git remote add origin ${GITHUB_URL}.git
 
-mv $proposedProjectDir/lib/index.js $proposedProjectDir/lib/$projectName.js
-mv $proposedProjectDir/test/index.js $proposedProjectDir/test/$projectName.js
+mv $proposedProjectDir/lib/index.js $proposedProjectDir/lib/${projectName#node-}.js
+mv $proposedProjectDir/test/index.js $proposedProjectDir/test/${projectName#node-}.js
 
 
-npm install istanbul mocha should jshint --save-dev
+npm install istanbul mocha should jshint coveralls --save-dev
 npm test
 
 if [ "$PUBLISH_INITIAL" == "y" ];then

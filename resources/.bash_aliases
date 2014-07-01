@@ -30,6 +30,7 @@ alias grv='git remote -v'
 alias gpl='git pull'
 alias grh='git reset --hard'
 alias grh1='git reset --hard HEAD^'
+alias gpuall='git push origin HEAD;git push origin --tags'
 
 #npm shortcuts
 alias npu='npm publish'
