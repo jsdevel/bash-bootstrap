@@ -42,6 +42,11 @@ function cjobs()
    ps -e | less;
 }
 
+function touchexe(){
+  touch $1
+  chmod +x $1
+}
+
 sshadd(){
   ssh-add $HOME/.ssh/$1
 }
