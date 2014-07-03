@@ -44,8 +44,13 @@ noremap <leader>n :call HandleNumberSetting()<CR>
 noremap <leader>q :q<CR>
 noremap <leader>s :wa<CR>
 noremap <leader>t :call TidyFoo()<CR>
-noremap <leader>z :sus <CR>
+noremap <leader>z :call SaveAndSuspend()<CR>
 noremap <leader>x :xa <CR>
+
+function! SaveAndSuspend()
+  :wa
+  :sus
+endfunction
 
 function! HandleNumberSetting()
   if &number

@@ -3,6 +3,10 @@
 alias cibashboot='(cd ~/.bash-bootstrap && git add --all && git commit && git push origin master);'
 alias upbashboot='(cd ~/.bash-bootstrap && git pull && ./setup.bash && . ~/.bash_profile)'
 
+#vim-bootstrap
+alias civimboot='(cd ~/.vim && git add --all && git commit && git push origin master);'
+alias upvimboot='(cd ~/.vim && git pull && git submodule update --init)'
+
 #shortcuts for editing bash-bootstrap files
 alias edivimrc='vim ~/.vimrc'
 alias edibashl='vim ~/.bash_aliases;. ~/.bash_aliases'
@@ -24,8 +28,9 @@ alias f='fg'
 alias gb='git branch'
 alias gst='git status'
 alias gc='git commit'
-alias gca='git commit -a'
-alias gpu='git push'
+alias gca='git add --all;git commit'
+alias glo='git log'
+alias gpu='git push origin HEAD'
 alias grv='git remote -v'
 alias gpl='git pull'
 alias grh='git reset --hard'
