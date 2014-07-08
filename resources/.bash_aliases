@@ -51,6 +51,8 @@ function cjobs()
 function touchexe(){
   touch $1
   chmod +x $1
+  echo -e '#!/bin/bash\n' > $1
+  vim $1
 }
 
 sshadd(){
