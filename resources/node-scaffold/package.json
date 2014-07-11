@@ -6,7 +6,8 @@
   "author": "__PROJECT_AUTHOR__",
   "scripts": {
     "pretest": "jshint lib && jshint --config ./test/.jshintrc test",
-    "test": "istanbul cover _mocha && cat ./coverage/lcov.info | coveralls -v && rm -rf coverage"
+    "cover": "istanbul cover _mocha && cat ./coverage/lcov.info | coveralls -v && rm -rf coverage",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
