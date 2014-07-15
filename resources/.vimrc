@@ -16,7 +16,7 @@ set wrap "Wrap lines
 
 
 set number
-set updatetime=1000
+set updatetime=1200
 set nopaste
 set colorcolumn=85
 set background=dark
