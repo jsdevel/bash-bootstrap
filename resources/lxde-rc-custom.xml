@@ -3,6 +3,11 @@
     <command>lxde-take-screenshot</command>
   </action>
 </keybind>
+<keybind key="W-l">
+  <action name="Execute">
+    <command>xscreensaver-command -lock</command>
+  </action>
+</keybind>
 <keybind key="XF86AudioMute">
   <action name="Execute">
     <command>amixer sset Master toggle</command>
