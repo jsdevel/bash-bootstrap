@@ -1,0 +1,5 @@
+#!/bin/bash
+
+while foo="$(inotifywait -qre MODIFY --exclude '.*.swp' $CWD)";do
+  $1
+done
