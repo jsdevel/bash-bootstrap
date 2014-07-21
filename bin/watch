@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DIR="$(realpath $CWD"./")"
-echo $1
-while foo="$(inotifywait -qre MODIFY --exclude '.*.swp' "$DIR")";do
-  $1
+echo "Watching events in $DIR"
+while foo="$(inotifywait -qre create -e move -e modify -e attrib --exclude '.*.swp' "$DIR")";do
+  $@
 done
