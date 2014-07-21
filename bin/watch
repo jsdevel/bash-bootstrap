@@ -1,5 +1,7 @@
 #!/bin/bash
 
-while foo="$(inotifywait -qre MODIFY --exclude '.*.swp' $CWD)";do
+DIR="$(realpath $CWD"./")"
+echo $1
+while foo="$(inotifywait -qre MODIFY --exclude '.*.swp' "$DIR")";do
   $1
 done

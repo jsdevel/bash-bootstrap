@@ -26,17 +26,17 @@ alias f='fg'
 
 #git shortcuts
 alias gb='git branch'
-alias gst='git status'
 alias gc='git commit'
 alias gca='git add --all;git commit'
-alias glo='git log'
-alias gpu='git push origin HEAD;git push origin --tags'
 alias gfpu='git push -f origin HEAD;git push origin --tags'
-alias grv='git remote -v'
+alias glo='git log'
 alias gpl='git pull'
-alias grh='git reset --hard'
-alias grh1='git reset --hard HEAD^'
+alias gpu='git push origin HEAD;git push origin --tags'
 alias gpuall='git push origin HEAD;git push origin --tags'
+alias grh1='git reset --hard HEAD^'
+alias grh='git reset --hard'
+alias grv='git remote -v'
+alias gst='git status'
 
 #npm shortcuts
 alias npu='npm publish'
