@@ -77,7 +77,7 @@ sed -i'' "s|__NAME__|${projectName#node}|g" $proposedProjectDir/test/index.js
 git remote add origin ${GITHUB_URL}.git
 
 mv $proposedProjectDir/lib/index.js $proposedProjectDir/lib/${projectName#node-}.js
-mv $proposedProjectDir/test/index.js $proposedProjectDir/test/${projectName#node-}.js
+mv $proposedProjectDir/test/index.js $proposedProjectDir/test/${projectName#node-}.specs.js
 
 
 npm install istanbul mocha should jshint coveralls --save-dev
