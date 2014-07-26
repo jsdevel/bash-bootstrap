@@ -34,6 +34,7 @@ noremap <C-h> <C-w><C-h>
 noremap <C-j> <C-w><C-j>
 noremap <C-k> <C-w><C-k>
 noremap <C-l> <C-w><C-l>
+noremap <leader>e :call ToggleErrors()<CR>
 noremap <leader>f :tab split<CR>
 noremap <leader>F :tabc<CR>
 noremap <leader>l <C-w>>
@@ -70,6 +71,16 @@ EOF
   :e
 endfunction
 
+function! ToggleErrors()
+  if exists("w:syntastic_error_loc_list_is_showing") && w:syntastic_error_loc_list_is_showing
+    :lclose
+    let w:syntastic_error_loc_list_is_showing = 0
+  else
+    let w:syntastic_error_loc_list_is_showing = 1
+    :Errors
+  endif
+endfunction
+
 "Whitespace
 function! <SID>StripTrailingWhitespaces()
   " Preparation: save last search, and cursor position.
@@ -84,14 +95,6 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-
-"Sessions
-function! SaveSessionAndQuit()
-  :wa
-  NERDTreeClose
-  mksession! .vimsession
-  :qa
-endfunction
 
 "plugin configuration
 let g:syntastic_always_populate_loc_list=0
