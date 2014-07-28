@@ -1,6 +1,8 @@
 #!/bin/bash
 
-al=~/.bash_aliases
+al=$HOME/.bash_aliases
+rc=$HOME/.bashrc
+pr=$HOME/.bash_profile
 
 if [ -f $al ] && [ ! -h $al ];then
   mv $al ${al}.backup;
@@ -10,17 +12,20 @@ if [ ! -h $al ];then
   ln -s "`rPath .bash_aliases`" $al
 fi
 
-if [ ! -f ~/.bash_profile ];then
-  touch ~/.bash_profile
+if [ ! -f "$rc" ];then
+  cat > "$rc" <<~
+#!/bin/bash
+~
 fi
 
-if [ -z "`grep -o 'bash_aliases' ~/.bash_profile`" ];then
-modifiedHeaderTo '#' ~/.bash_profile
-  cat >> ~/.bash_profile <<~
+if [ -z "`grep -o 'bash_aliases' "$rc"`" ];then
+modifiedHeaderTo '#' "$rc"
+  cat >> "$rc" <<~
 
-if [ -f $al ];then
-  . $al > /dev/null;
+if [ -f '$al' ];then
+  . '$al' > /dev/null;
 fi
 export PATH="$BIN_DIR:\$PATH";
+
 ~
 fi
