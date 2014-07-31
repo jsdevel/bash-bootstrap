@@ -1,4 +1,5 @@
 #!/bin/bash
 
+mkdir -p ~/screenshots
 name=`zenity --entry --text='Enter the filename:'`;
 scrot -s -e "mv \$f ~/screenshots/${name}_\$f";
