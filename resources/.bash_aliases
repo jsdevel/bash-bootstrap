@@ -35,6 +35,7 @@ alias gpu='git push origin HEAD;git push origin --tags'
 alias gpuall='git push origin HEAD;git push origin --tags'
 alias grh1='git reset --hard HEAD^'
 alias grh='git reset --hard'
+alias grs1='git reset --soft HEAD^'
 alias grv='git remote -v'
 alias gst='git status'
 
