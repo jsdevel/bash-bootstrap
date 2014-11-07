@@ -38,6 +38,8 @@ alias grh='git reset --hard'
 alias grs1='git reset --soft HEAD^;git reset'
 alias grv='git remote -v'
 alias gst='git status'
+alias gshs='git stash save -u'
+alias gshp='git stash pop'
 
 #npm shortcuts
 alias npu='npm publish'
