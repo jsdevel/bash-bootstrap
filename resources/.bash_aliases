@@ -26,6 +26,16 @@ alias f='fg'
 
 #git shortcuts
 alias gb='git branch'
+function gbd() {
+  local branch="`git rev-parse --abbrev-ref HEAD`"
+  git checkout master
+
+  if [[ "$branch" != 'master' ]]; then
+    git branch -D "$branch"
+    git pull
+    git remote prune origin
+  fi
+}
 alias gc='git commit'
 alias gca='git add --all :/;git commit'
 alias gfpu='git push -f origin HEAD;git push origin --tags'
