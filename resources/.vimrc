@@ -34,6 +34,7 @@ noremap <C-h> <C-w><C-h>
 noremap <C-j> <C-w><C-j>
 noremap <C-k> <C-w><C-k>
 noremap <C-l> <C-w><C-l>
+noremap <leader>c :let @/ = ""<CR>
 noremap <leader>e :call ToggleErrors()<CR>
 noremap <leader>f :tab split<CR>
 noremap <leader>F :tabc<CR>
