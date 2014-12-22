@@ -43,6 +43,7 @@ noremap <leader>h <C-w><
 noremap <leader>j <C-w>-
 noremap <leader>k <C-w>+
 noremap <leader>n :call HandleNumberSetting()<CR>
+noremap <leader>p :call HandlePasteSetting()<CR>
 noremap <leader>q :q<CR>
 noremap <leader>s :wa<CR>
 noremap <leader>t :call TidyFoo()<CR>
@@ -59,6 +60,14 @@ function! HandleNumberSetting()
     set nonumber
   else
     set number
+  endif
+endfunction
+
+function! HandlePasteSetting()
+  if &paste
+    set nopaste
+  else
+    set paste
   endif
 endfunction
 
