@@ -11,7 +11,7 @@ alias upvimboot='(cd ~/.vim && git pull && git submodule update --init)'
 alias edivimrc='vim ~/.vimrc'
 alias edibashl='vim ~/.bash_aliases;. ~/.bash_aliases'
 alias edibashp='vim ~/.bash_profile;. ~/.bash_profile'
-alias edibasrc='vim ~/.bash_profile;. ~/.bash_profile'
+alias edibasrc='vim ~/.bashrc;. ~/.bashrc'
 alias edisyntax='vim ~/.vim/bundle/syntastic/syntax_checkers'
 alias edisnip='vim ~/.vim/bundle/snipmate.vim/snippets'
 

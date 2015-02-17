@@ -14,4 +14,4 @@ if [ ! -d ~/.bash-bootstrap ];then
   ~/.bash-bootstrap/setup.bash
 fi
 
-. ~/.bash_profile
+. ~/.bashrc

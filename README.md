@@ -22,7 +22,7 @@ Prior to installing bash-bootstrap, vim and git need to be available in your $PA
 Once that's ready simply copy and run this command in a
 bash prompt:
 
-`curl -3s https://raw.githubusercontent.com/jsdevel/bash-bootstrap/master/bootstrap.bash > /tmp/bash-bootstrap;bash /tmp/bash-bootstrap;. ~/.bash_profile;rm /tmp/bash-bootstrap`
+`curl -3s https://raw.githubusercontent.com/jsdevel/bash-bootstrap/master/bootstrap.bash > /tmp/bash-bootstrap;bash /tmp/bash-bootstrap;. ~/.bashrc;rm /tmp/bash-bootstrap`
 
 ##Tested environments
 These environments are known to support bash-bootstrap:

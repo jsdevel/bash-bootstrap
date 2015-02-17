@@ -2,7 +2,6 @@
 
 al=$HOME/.bash_aliases
 rc=$HOME/.bashrc
-pr=$HOME/.bash_profile
 
 if [ -f $al ] && [ ! -h $al ];then
   mv $al ${al}.backup;
