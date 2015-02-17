@@ -50,6 +50,7 @@ alias grv='git remote -v'
 alias gst='git status'
 alias gshs='git stash save -u'
 alias gshp='git stash pop'
+alias gnew='git checkout master && git checkout -b'
 
 #npm shortcuts
 alias npu='npm publish'
