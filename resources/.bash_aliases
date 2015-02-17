@@ -1,7 +1,7 @@
 #!/bin/bash
 #bash-bootstrap management
 alias cibashboot='(cd ~/.bash-bootstrap && git add --all && git commit && git push origin master);'
-alias upbashboot='(cd ~/.bash-bootstrap && git pull && ./setup.bash && . ~/.bash_profile)'
+alias upbashboot='(cd ~/.bash-bootstrap && git pull && ./setup.bash && . ~/.bashrc)'
 
 #vim-bootstrap
 alias civimboot='(cd ~/.vim && git add --all && git commit && git push origin master);'
