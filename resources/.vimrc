@@ -117,6 +117,7 @@ let NERDTreeShowHidden=1
 let NERDTreeAutoDeleteBuffer=1
 let g:gitgutter_realtime=1
 let g:gitgutter_eager=1
+let g:gitgutter_max_signs=10000
 
 "bootstrap plugins
 execute pathogen#infect()

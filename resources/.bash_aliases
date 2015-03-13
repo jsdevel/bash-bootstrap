@@ -9,6 +9,7 @@ alias upvimboot='(cd ~/.vim && git pull && git submodule update --init)'
 
 #shortcuts for editing bash-bootstrap files
 alias edivimrc='vim ~/.vimrc'
+alias edisshconfig='vim ~/.ssh/config'
 alias edibashl='vim ~/.bash_aliases;. ~/.bash_aliases'
 alias edibashp='vim ~/.bash_profile;. ~/.bash_profile'
 alias edibasrc='vim ~/.bashrc;. ~/.bashrc'
