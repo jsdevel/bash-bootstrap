@@ -38,6 +38,8 @@ noremap <leader>c :let @/ = ""<CR>
 noremap <leader>e :call ToggleErrors()<CR>
 noremap <leader>f :tab split<CR>
 noremap <leader>F :tabc<CR>
+noremap <leader>g :rightb wincmd f<CR>
+noremap <leader>G :abo wincmd f<CR>
 noremap <leader>l <C-w>>
 noremap <leader>h <C-w><
 noremap <leader>j <C-w>-
