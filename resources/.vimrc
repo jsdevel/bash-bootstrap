@@ -1,5 +1,7 @@
 syntax on
 
+set exrc
+set secure
 set autowriteall
 set hlsearch
 set expandtab
