@@ -16,6 +16,7 @@ alias edibashp='vim ~/.bash_profile;. ~/.bash_profile'
 alias edibasrc='vim ~/.bashrc;. ~/.bashrc'
 alias edisyntax='vim ~/.vim/bundle/syntastic/syntax_checkers'
 alias edisnip='vim ~/.vim/bundle/snipmate.vim/snippets'
+alias viewsyslog='sudo vim /var/log/messages'
 
 #general shortcuts
 alias ls="ls --color"
