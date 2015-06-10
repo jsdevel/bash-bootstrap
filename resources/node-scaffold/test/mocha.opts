@@ -1,4 +1,4 @@
 --reporter spec
 --ui bdd
 --recursive
--r should
+-r ./test/helpers/test-setup.js

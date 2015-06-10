@@ -7,7 +7,7 @@
   "scripts": {
     "pretest": "jshint lib && jshint --config ./test/.jshintrc test",
     "cover": "istanbul cover _mocha -- ./test/**/*.specs.js && cat ./coverage/lcov.info | coveralls -v && rm -rf coverage",
-    "test": "mocha ./test/**/*.specs.js"
+    "test": "mocha -w ./test/**/*.specs.js"
   },
   "repository": {
     "type": "git",
