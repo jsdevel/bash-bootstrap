@@ -39,6 +39,23 @@ function gbd() {
     git remote prune origin
   fi
 }
+
+# FF Merge a PR branch into master and delete it
+function gprbdone() {
+  local branch="`git rev-parse --abbrev-ref HEAD`"
+
+  if [[ "$branch" != 'master' ]]; then
+    git push -f origin HEAD
+    git checkout master
+    git merge "$branch"
+    git push origin master
+    git push origin ":$branch"
+    git branch -d "$branch"
+  else
+    echo 'On branch master, nothing to do.'
+  fi
+}
+
 alias gc='git commit'
 alias gca='git add --all :/;git commit'
 alias gfpu='git push -f origin HEAD;git push origin --tags'
