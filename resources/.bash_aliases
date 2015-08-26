@@ -73,6 +73,7 @@ alias gshp='git stash pop'
 alias gnewb='git checkout -b'
 alias gnew='git checkout master && gnewb'
 alias gshowa='git log --pretty=format:"%an" | sort | uniq -c | sort -n'
+alias gcl='grh && git clean -fd'
 
 #npm shortcuts
 alias npu='npm publish'
