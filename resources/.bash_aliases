@@ -45,11 +45,11 @@ function gprbdone() {
   local branch="`git rev-parse --abbrev-ref HEAD`"
 
   if [[ "$branch" != 'master' ]]; then
-    git push -f origin HEAD
-    git checkout master
-    git merge "$branch"
-    git push origin master
-    git push origin ":$branch"
+    git push -f origin HEAD && \
+    git checkout master && \
+    git merge "$branch" && \
+    git push origin master && \
+    git push origin ":$branch" && \
     git branch -d "$branch"
   else
     echo 'On branch master, nothing to do.'
@@ -74,6 +74,7 @@ alias gnewb='git checkout -b'
 alias gnew='git checkout master && gnewb'
 alias gshowa='git log --pretty=format:"%an" | sort | uniq -c | sort -n'
 alias gcl='grh && git clean -fd'
+alias gbm='git checkout master'
 
 #npm shortcuts
 alias npu='npm publish'
