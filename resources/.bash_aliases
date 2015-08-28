@@ -47,7 +47,7 @@ function gprbdone() {
   if [[ "$branch" != 'master' ]]; then
     git push -f origin HEAD && \
     git checkout master && \
-    git merge "$branch" && \
+    git merge --ff-only "$branch" && \
     git push origin master && \
     git push origin ":$branch" && \
     git branch -d "$branch"
