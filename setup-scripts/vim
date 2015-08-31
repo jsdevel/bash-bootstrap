@@ -9,7 +9,7 @@ fi
 #Prevent cd from changing the directory
 (cd ~/.vim;git pull origin master;git submodule update --init);
 
-mkdir -p ~/.vim/autoload ~/.vim/bundle
+mkdir -p ~/.vim/bundle
 
 #setup .vimrc
 if [ -f ~/.vimrc ] && [ ! -f ~/.vimrc.backup ] && [ ! -h ~/.vimrc ];then
