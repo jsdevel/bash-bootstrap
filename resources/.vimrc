@@ -1,4 +1,22 @@
+"Start Vundle Configuration
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
+call vundle#end()
+filetype plugin indent on
+"End Vundle Configuration
+
 syntax on
+filetype on
 
 set exrc
 set secure
@@ -117,11 +135,14 @@ let g:syntastic_auto_loc_list=0
 let g:syntastic_enable_signs=0
 "let g:syntastic_ignore_files = ['.\+\.json$']
 let g:syntastic_javascript_jshint_conf = '~/.bash-bootstrap/resources/.jshintrc-local'
-let NERDTreeShowHidden=1
 let NERDTreeAutoDeleteBuffer=1
 let g:gitgutter_realtime=1
 let g:gitgutter_eager=1
 let g:gitgutter_max_signs=10000
-
-"bootstrap plugins
-execute pathogen#infect()
+" Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]

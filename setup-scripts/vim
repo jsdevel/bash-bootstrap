@@ -23,3 +23,5 @@ if [ -f ~/.vimrc ];then
 fi
 
 ln -s "`rPath .vimrc`" ~/.vimrc
+
+vim +PluginInstall +qall
