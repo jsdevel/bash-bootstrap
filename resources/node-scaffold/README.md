@@ -30,8 +30,8 @@ THE SOFTWARE.
 [npm-url]: https://npmjs.org/package/__NAME__
 [npm-image]: http://img.shields.io/npm/v/__NAME__.svg
 
-[travis-url]: https://travis-ci.org/__GITHUB_USERNAME__/__NAME__
-[travis-image]: http://img.shields.io/travis/__GITHUB_USERNAME__/__NAME__.svg
+[travis-url]: https://travis-ci.org/__GITHUB_USERNAME__/node-__NAME__
+[travis-image]: http://img.shields.io/travis/__GITHUB_USERNAME__/node-__NAME__.svg
 
-[coveralls-url]: https://coveralls.io/r/__GITHUB_USERNAME__/__NAME__
-[coveralls-image]: http://img.shields.io/coveralls/__GITHUB_USERNAME__/__NAME__/master.svg
+[coveralls-url]: https://coveralls.io/r/__GITHUB_USERNAME__/node-__NAME__
+[coveralls-image]: http://img.shields.io/coveralls/__GITHUB_USERNAME__/node-__NAME__/master.svg

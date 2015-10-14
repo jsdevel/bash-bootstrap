@@ -9,7 +9,7 @@ if [ -z "$1" ];then
 fi
 
 projectName=$1
-proposedProjectDir=$PWD/$1
+proposedProjectDir=$PWD/node-$1
 
 if [ -d $proposedProjectDir ];then
   echo "$proposedProjectDir already exists!  Aborting..."
