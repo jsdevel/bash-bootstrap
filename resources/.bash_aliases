@@ -20,6 +20,7 @@ alias edisnip='vim ~/.vim/bundle/snipmate.vim/snippets'
 alias viewsyslog='sudo vim /var/log/messages'
 
 #general shortcuts
+alias ..="cd .."
 alias ls="ls --color"
 alias l="ls -Al"
 
