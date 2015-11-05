@@ -81,7 +81,6 @@ mv $proposedProjectDir/test/index.js $proposedProjectDir/test/${projectName#node
 
 
 npm install istanbul mocha chai jshint coveralls --save-dev
-npm test
 
 if [ "$PUBLISH_INITIAL" == "y" ];then
   npm publish
