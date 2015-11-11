@@ -61,8 +61,15 @@ function gprbdone() {
 
 # docker alises
 
+# enforce a tag name
+alias dbuild='docker build -t'
 alias dims='docker images'
 alias dps='docker ps'
+function drmei() {
+  for image in `docker images | grep "^<none>" | sed "s|^<none>\s*<none>\s*||" | sed "s| \s*.*$||"`;do
+    docker rmi -f $image
+  done
+}
 alias ddrun='docker run -d'
 alias drun='docker run'
 alias dstop='docker stop -t 0'
