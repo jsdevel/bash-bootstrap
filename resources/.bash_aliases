@@ -59,6 +59,15 @@ function gprbdone() {
   fi
 }
 
+# docker alises
+
+alias dims='docker images'
+alias dps='docker ps'
+alias ddrun='docker run -d'
+alias drun='docker run'
+alias dstop='docker stop -t 0'
+
+# git aliases
 alias gc='git commit'
 alias gca='git add --all :/;git commit'
 alias gfpu='git push -f origin HEAD;git push origin --tags'
