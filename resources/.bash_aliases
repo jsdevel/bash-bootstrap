@@ -62,7 +62,7 @@ function gprbdone() {
 # docker alises
 
 # enforce a tag name
-alias dbuild='docker build -t'
+alias dbuild='docker build --no-cache -t'
 alias dims='docker images'
 alias dps='docker ps'
 function drmei() {
