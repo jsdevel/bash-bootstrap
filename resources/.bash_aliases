@@ -121,22 +121,32 @@ if [ -f ~/.bash_aliases_custom ];then
   . ~/.bash_aliases_custom;
 fi
 
+##
+# Orphans a snippet of bash in a new process by running it in a background
+# process and disowning it.  It is important that you redirect stdout and
+# stderr to avoid broken pipes.
+function orphan() {
+  bash -c "$1" &
+  disown $!
+}
 
-function get_git_branch() {
+##
+# This is primarily used for PS1.
+#
+# Outputs " @ hostnam" if hostname doesn't contain "local".
+# Outputs " (branch-name)" when PWD is in a git repo.
+function bash_bootstrap_ps1_extras() {
+  local hostName="`hostname`"
   local branch="`git rev-parse --abbrev-ref HEAD 2> /dev/null`"
+
+  if [ -z "`echo $hostName | grep local`" ]; then
+    echo " @ ${hostName:0:7}"
+  fi
 
   if [ -n "$branch" ]; then
     echo " ($branch)"
   fi
 }
 
-function get_hostname_if_not_local() {
-  hostName="`hostname`"
-
-  if [ -z "`echo $hostName | grep local`" ]; then
-    echo " @ ${hostName:0:7}"
-  fi
-}
-
-export PS1="\e[0;33m\W\e[0m\[\033[32m\]\$(get_hostname_if_not_local)\$(get_git_branch)\[\033[00m\] $ "
+export PS1="\e[0;33m\W\e[0m\[\033[32m\]\$(bash_bootstrap_ps1_extras)\[\033[00m\] $ "
 export PS2=""
