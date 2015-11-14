@@ -134,7 +134,7 @@ function get_hostname_if_not_local() {
   hostName="`hostname`"
 
   if [ -z "`echo $hostName | grep local`" ]; then
-    echo " @ `${hostName:0:7}`"
+    echo " @ ${hostName:0:7}"
   fi
 }
 
