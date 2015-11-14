@@ -122,9 +122,21 @@ if [ -f ~/.bash_aliases_custom ];then
 fi
 
 
-#Git branch in prompt.  Courtesy of @acarlos1000
-function parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+function get_git_branch() {
+  local branch="`git rev-parse --abbrev-ref HEAD 2> /dev/null`"
+
+  if [ -n "$branch" ]; then
+    echo " ($branch)"
+  fi
 }
-export PS1="\e[0;33m\W\e[0m\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+
+function get_hostname_if_not_local() {
+  hostName="`hostname`"
+
+  if [ -z "`echo $hostName | grep local`" ]; then
+    echo " @ `${hostName:0:7}`"
+  fi
+}
+
+export PS1="\e[0;33m\W\e[0m\[\033[32m\]\$(get_hostname_if_not_local)\$(get_git_branch)\[\033[00m\] $ "
 export PS2=""
