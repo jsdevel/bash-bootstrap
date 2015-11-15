@@ -149,11 +149,11 @@ function bash_bootstrap_ps1_extras() {
   local branch="`git rev-parse --abbrev-ref HEAD 2> /dev/null`"
 
   if [ -z "`echo $hostName | grep local`" ]; then
-    echo " @ ${hostName:0:7}"
+    echo -n " @ ${hostName:0:7}"
   fi
 
   if [ -n "$branch" ]; then
-    echo " ($branch)"
+    echo -n " ($branch)"
   fi
 }
 
