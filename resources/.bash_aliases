@@ -121,6 +121,15 @@ if [ -f ~/.bash_aliases_custom ];then
   . ~/.bash_aliases_custom;
 fi
 
+function add_user_perms_to_dir_acl() {
+  local user="$1"
+  local perms="$2"
+  local dir="$3"
+
+  setfacl -R -m "u:$user:$perms" $dir
+  setfacl -R -d -m "u:$user:$perms" $dir
+}
+
 ##
 # Orphans a snippet of bash in a new process by running it in a background
 # process and disowning it.  It is important that you redirect stdout and
