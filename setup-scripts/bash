@@ -24,6 +24,10 @@ modifiedHeaderTo '#' "$rc"
 if [ -f '$al' ];then
   . '$al' > /dev/null;
 fi
+
+if [ -f '`rPath start-agent`' ]; then
+  . '`rPath start-agent`'
+fi
 export PATH="$BIN_DIR:\$PATH";
 
 ~

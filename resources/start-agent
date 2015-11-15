@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [[ ! -d ~/.ssh ]]; then
+  exit
+fi
+
+if [ ! -f ~/.ssh/.agent.sock ] || [ -z "`ps -e | grep 'ssh-agent'`" ];then
+   eval `ssh-agent` > /dev/null;
+   echo "$SSH_AUTH_SOCK" > ~/.ssh/.agent.sock;
+else
+   export SSH_AUTH_SOCK="`cat ~/.ssh/.agent.sock`";
+fi
