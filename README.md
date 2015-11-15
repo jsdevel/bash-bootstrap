@@ -19,12 +19,15 @@ Out of the box, you'll have the following vim plugins configured:
 ##Installing
 Prior to installing bash-bootstrap, vim and git need to be available in your $PATH.
 
-Once that's ready simply copy and run this command in a
-bash prompt:
+Once that's ready simply copy and run this command in a bash prompt:
 
 ```bash
 curl -sk https://raw.githubusercontent.com/jsdevel/bash-bootstrap/master/bootstrap.bash > /tmp/bash-bootstrap;bash /tmp/bash-bootstrap;. ~/.bashrc;rm /tmp/bash-bootstrap
 ```
+
+By default `vim-bootstrap` is installed.  If you would like to avoid this, prefix the
+install command with `BASH_BOOTSTRAP_NO_VIM=true <install command>`.  You can re-enable
+`vim-bootrap` later by modifying your `~/.bashrc` file.
 
 ##Tested environments
 These environments are known to support bash-bootstrap:

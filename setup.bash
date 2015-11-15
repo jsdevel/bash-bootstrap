@@ -23,4 +23,7 @@ function rPath(){
 
 setup bash
 setup git
-setup vim
+
+if [ -z "$BASH_BOOTSTRAP_NO_VIM"]; then
+  setup vim
+fi

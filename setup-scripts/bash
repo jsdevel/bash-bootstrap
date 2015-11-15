@@ -28,7 +28,9 @@ fi
 if [ -f '`rPath start-agent`' ]; then
   . '`rPath start-agent`'
 fi
-export PATH="$BIN_DIR:\$PATH";
+# Remove this if you want to enable vim-bootstrap.
+export BASH_BOOTSTRAP_NO_VIM="$BASH_BOOTSTRAP_NO_VIM"
+export PATH="$BIN_DIR:\$PATH"
 
 ~
 fi
