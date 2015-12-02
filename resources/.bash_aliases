@@ -76,6 +76,7 @@ alias dstop='docker stop -t 0'
 
 # git aliases
 alias gc='git commit'
+alias gco='git checkout'
 alias gca='git add --all :/;git commit'
 alias gfpu='git push -f origin HEAD;git push origin --tags'
 alias glo='git log'
