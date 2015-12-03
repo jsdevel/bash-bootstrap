@@ -19,6 +19,9 @@ alias edisyntax='vim ~/.vim/bundle/syntastic/syntax_checkers'
 alias edisnip='vim ~/.vim/bundle/snipmate.vim/snippets'
 alias viewsyslog='sudo vim /var/log/messages'
 
+#shortcuts for working with node projects
+alias grepnode='grep -r --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=coverage'
+
 #general shortcuts
 alias ..="cd .."
 alias ls="ls --color"
