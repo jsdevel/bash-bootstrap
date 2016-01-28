@@ -68,6 +68,8 @@ function gprbdone() {
 alias dbuild='docker build --no-cache -t'
 alias dims='docker images'
 alias dps='docker ps'
+alias dpsa='docker ps -a'
+alias drmi='docker rmi'
 alias drmir='docker rmi -f `docker images | grep "^<none>" | sed "s|^<none>\s*<none>\s*||" | sed "s| \s*.*$||"`'
 # Remove all containers with a randomly assigned name I.E. a name with "_" in it
 # This is useful if you avoid "_" when naming your containers with the "--name" option
