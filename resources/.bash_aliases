@@ -79,6 +79,7 @@ alias drun='docker run'
 alias dstop='docker stop -t 0'
 
 # git aliases
+alias gammend='git commit --amend --no-edit'
 alias gc='git commit'
 alias gco='git checkout'
 alias gca='git add --all :/;git commit'
