@@ -2,6 +2,7 @@
 
 al=$HOME/.bash_aliases
 rc=$HOME/.bashrc
+ternProject=$HOME/.tern-project
 
 if [ -f $al ] && [ ! -h $al ];then
   mv $al ${al}.backup;
@@ -9,6 +10,10 @@ fi
 
 if [ ! -h $al ];then
   ln -s "`rPath .bash_aliases`" $al
+fi
+
+if [ ! -h "$ternProject" ];then
+  ln -s "`rPath .tern-project`" "$ternProject"
 fi
 
 if [ ! -f "$rc" ];then

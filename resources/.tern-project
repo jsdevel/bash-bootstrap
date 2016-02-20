@@ -1,0 +1,13 @@
+{
+  "libs": [
+    "browser",
+    "chai",
+    "ecma5",
+    "ecma6",
+    "jquery"
+  ],
+  "loadEagerly": [
+  ],
+  "plugins": {
+  }
+}
