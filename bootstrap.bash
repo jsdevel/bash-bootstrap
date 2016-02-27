@@ -11,7 +11,7 @@ fi
 
 if [ ! -d ~/.bash-bootstrap ];then
   git clone https://github.com/jsdevel/bash-bootstrap.git ~/.bash-bootstrap
-  ~/.bash-bootstrap/setup.bash
+  BASH_BOOTSTRAP_NO_VIM="$BASH_BOOTSTRAP_NO_VIM" ~/.bash-bootstrap/setup.bash
 fi
 
 . ~/.bashrc
