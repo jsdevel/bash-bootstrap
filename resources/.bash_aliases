@@ -20,7 +20,12 @@ alias edisnip='vim ~/.vim/bundle/snipmate.vim/snippets'
 alias viewsyslog='sudo vim /var/log/messages'
 
 #shortcuts for working with node projects
-alias grepnode='grep -r --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=coverage --exclude-dir=dist'
+alias grepnode='grep -r \
+  --exclude-dir=node_modules \
+  --exclude-dir=.git \
+  --exclude-dir=.sonar \
+  --exclude-dir=coverage \
+  --exclude-dir=dist'
 
 #general shortcuts
 alias ..="cd .."
@@ -45,8 +50,26 @@ function gbd() {
   fi
 }
 
+# FF Merge a PR branch into develop and delete it
+function gprbdoned() {
+  local branch="`git rev-parse --abbrev-ref HEAD`"
+
+  if [[ "$branch" != 'develop' ]]; then
+    git push -f origin HEAD && \
+    git checkout develop && \
+    git pull origin develop -u && \
+    git merge --ff-only "$branch" && \
+    git push origin develop && \
+    git push origin ":$branch" && \
+    git branch -d "$branch" && \
+    git checkout develop
+  else
+    echo 'On branch develop, nothing to do.'
+  fi
+}
+
 # FF Merge a PR branch into master and delete it
-function gprbdone() {
+function gprbdonem() {
   local branch="`git rev-parse --abbrev-ref HEAD`"
 
   if [[ "$branch" != 'master' ]]; then
@@ -56,7 +79,8 @@ function gprbdone() {
     git merge --ff-only "$branch" && \
     git push origin master && \
     git push origin ":$branch" && \
-    git branch -d "$branch"
+    git branch -d "$branch" && \
+    git checkout master
   else
     echo 'On branch master, nothing to do.'
   fi
