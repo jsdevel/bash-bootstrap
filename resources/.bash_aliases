@@ -55,12 +55,12 @@ function gprbdoned() {
   local branch="`git rev-parse --abbrev-ref HEAD`"
 
   if [[ "$branch" != 'develop' ]]; then
-    git push -f origin HEAD && \
+    git push --no-verify -f origin HEAD && \
     git checkout develop && \
     git pull origin develop -u && \
     git merge --ff-only "$branch" && \
-    git push origin develop && \
-    git push origin ":$branch" && \
+    git push --no-verify origin develop && \
+    git push --no-verify origin ":$branch" && \
     git branch -d "$branch" && \
     git checkout develop
   else
@@ -73,12 +73,12 @@ function gprbdonem() {
   local branch="`git rev-parse --abbrev-ref HEAD`"
 
   if [[ "$branch" != 'master' ]]; then
-    git push -f origin HEAD && \
+    git push --no-verify -f origin HEAD && \
     git checkout master && \
     git pull origin master -u && \
     git merge --ff-only "$branch" && \
-    git push origin master && \
-    git push origin ":$branch" && \
+    git push --no-verify origin master && \
+    git push --no-verify origin ":$branch" && \
     git branch -d "$branch" && \
     git checkout master
   else
@@ -103,15 +103,15 @@ alias drun='docker run'
 alias dstop='docker stop -t 0'
 
 # git aliases
-alias gammend='git commit --amend --no-edit'
+alias gammend='git commit --no-verify --amend --no-edit'
 alias gc='git commit'
 alias gco='git checkout'
-alias gca='git add --all :/;git commit'
+alias gca='git add --all :/;git commit --no-verify'
 alias gfe='git fetch'
 alias gfpu='git push -f origin HEAD;git push origin --tags'
 alias glo='git log'
 alias gpl='git pull'
-alias gpu='git push origin HEAD;git push origin --tags'
+alias gpu='git push --no-verify origin HEAD;git push --no-verify origin --tags'
 alias gpuall='git push origin HEAD;git push origin --tags'
 alias grh1='git reset --hard HEAD^'
 alias grh='git reset --hard'
