@@ -57,7 +57,7 @@ function gprbdoned() {
   if [[ "$branch" != 'develop' ]]; then
     git push --no-verify -f origin HEAD && \
     git checkout develop && \
-    git pull origin develop -u && \
+    git pull origin develop && \
     git merge --ff-only "$branch" && \
     git push --no-verify origin develop && \
     git push --no-verify origin ":$branch" && \
@@ -75,7 +75,7 @@ function gprbdonem() {
   if [[ "$branch" != 'master' ]]; then
     git push --no-verify -f origin HEAD && \
     git checkout master && \
-    git pull origin master -u && \
+    git pull origin master && \
     git merge --ff-only "$branch" && \
     git push --no-verify origin master && \
     git push --no-verify origin ":$branch" && \
