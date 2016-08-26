@@ -6,7 +6,12 @@ alias civimboot='(cd ~/.vim && git add --all && git commit && git push origin ma
 
 #vim-bootstrap
 alias civimboot='(cd ~/.vim && git add --all && git commit && git push origin master);'
-alias upvimboot='(cd ~/.vim && git pull && git submodule update --init)'
+alias upvimboot='(cd ~/.vim && \
+  git pull && \
+  vim +PluginUpdate && \
+  git submodule update --init && \
+  cd ~/.vim/bundle/YouCompleteMe && \
+  ./install.py --clang-completer --tern-completer)'
 
 #shortcuts for editing bash-bootstrap files
 alias edivimrc='vim ~/.vimrc'
