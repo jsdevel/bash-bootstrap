@@ -27,6 +27,9 @@ alias grepnode='grep -r \
   --exclude-dir=coverage \
   --exclude-dir=dist'
 
+#react-native shortcuts
+alias ra='react-native'
+
 #general shortcuts
 alias ..="cd .."
 alias ls="ls --color"
