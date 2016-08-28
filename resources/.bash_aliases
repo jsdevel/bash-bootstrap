@@ -8,7 +8,7 @@ alias civimboot='(cd ~/.vim && git add --all && git commit && git push origin ma
 alias civimboot='(cd ~/.vim && git add --all && git commit && git push origin master);'
 alias upvimboot='(cd ~/.vim && \
   git pull && \
-  vim +PluginUpdate && \
+  vim +PluginUpdate +qall && \
   git submodule update --init && \
   cd ~/.vim/bundle/YouCompleteMe && \
   ./install.py --clang-completer --tern-completer)'
