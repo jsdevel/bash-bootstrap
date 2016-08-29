@@ -40,6 +40,20 @@ alias ..="cd .."
 alias ls="ls --color"
 alias l="ls -Al"
 
+function bsetfacl() {
+  local path="$1"
+
+  if [[ ! -d "$path" ]]; then
+    echo "You must supply a directory path!" >&2
+    exit 1
+  fi
+
+  sudo setfacl -R -m "u:$USER:rw" "$1"
+  sudo setfacl -d -m "u:$USER:rw" "$1"
+  #sudo setfacl -R -x "u:$USER:rx" "$1"
+  #sudo setfacl -d -x "u:$USER:rx" "$1"
+}
+
 #job aliases
 alias j='jobs'
 alias b='bg'
