@@ -1,6 +1,7 @@
 #!/bin/bash
 
 al=$HOME/.bash_aliases
+ctagsConfig=$HOME/.ctags
 rc=$HOME/.bashrc
 ternProject=$HOME/.tern-project
 
@@ -10,6 +11,10 @@ fi
 
 if [ ! -h $al ];then
   ln -s "`rPath .bash_aliases`" $al
+fi
+
+if [ ! -h $ctagsConfig ];then
+  ln -s "`rPath .ctags`" $ctagsConfig
 fi
 
 if [ ! -h "$ternProject" ];then

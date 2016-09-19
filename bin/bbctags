@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+
+command -v ctags > /dev/null || {
+  echo "You must install ctags first!" >&2
+  exit 1
+}
+
+excludeArgs=''
+if [[ -f .gitignore ]]; then
+  for entry in `cat .gitignore`;do
+    excludeArgs="$excludeArgs --exclude='$entry'"
+  done
+fi
+
+if [[ -f .ctags ]]; then
+  rm .ctags
+fi
+
+ctags $excludeArgs -f .ctags
