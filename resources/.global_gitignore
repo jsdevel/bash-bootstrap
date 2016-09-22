@@ -1,5 +1,5 @@
 /node_modules/
 *.swp
 *.swo
-.ctags
+.tags
 npm-debug.log
