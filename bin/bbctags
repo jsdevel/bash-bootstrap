@@ -14,8 +14,8 @@ if [[ -f .gitignore ]]; then
   done
 fi
 
-if [[ -f .ctags ]]; then
-  rm .ctags
+if [[ -f .tags ]]; then
+  rm .tags
 fi
 
-ctags $excludeArgs -f .ctags
+ctags $excludeArgs -f .tags ./**/*

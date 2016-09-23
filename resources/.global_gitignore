@@ -3,3 +3,4 @@
 *.swo
 .tags
 npm-debug.log
+.ctags
