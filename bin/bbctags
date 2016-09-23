@@ -7,10 +7,10 @@ command -v ctags > /dev/null || {
   exit 1
 }
 
-excludeArgs=''
+excludeArgs='--exclude=.git'
 if [[ -f .gitignore ]]; then
-  for entry in `cat .gitignore`;do
-    excludeArgs="$excludeArgs --exclude='$entry'"
+  for entry in `cat .gitignore | sed 's:#.*$::g' | sed 's:^!::g' | sed 's:^/::g' | sed 's:/$::g'`;do
+    excludeArgs="$excludeArgs --exclude=$entry"
   done
 fi
 
@@ -18,4 +18,10 @@ if [[ -f .tags ]]; then
   rm .tags
 fi
 
-ctags $excludeArgs -f .tags ./**/*
+ctags \
+  -f .tags \
+  -R \
+  --tag-relative=yes \
+  $excludeArgs \
+  --fields=+l \
+  ./*
