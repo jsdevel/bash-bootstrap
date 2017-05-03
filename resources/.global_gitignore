@@ -4,3 +4,7 @@
 .tags
 npm-debug.log
 .ctags
+ReactAndroid/gradle/
+ReactAndroid/gradlew
+ReactAndroid/gradlew.bat
+
