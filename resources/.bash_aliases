@@ -16,6 +16,9 @@ function upvimboot() {
   ./install.py --clang-completer --tern-completer
 }
 
+#shortcut for ranger
+alias r='ranger'
+
 #shortcuts for editing bash-bootstrap files
 alias edivimrc='vim ~/.vimrc'
 alias edisshconfig='vim ~/.ssh/config'
