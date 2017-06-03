@@ -10,7 +10,7 @@ if [ -d ~/.vim ];then
 fi
 
 if [ ! -d ~/.bash-bootstrap ];then
-  git clone https://github.com/jsdevel/bash-bootstrap.git ~/.bash-bootstrap
+  git clone git@github.com:jsdevel/bash-bootstrap.git ~/.bash-bootstrap
   BASH_BOOTSTRAP_NO_VIM="$BASH_BOOTSTRAP_NO_VIM" ~/.bash-bootstrap/setup.bash
 fi
 

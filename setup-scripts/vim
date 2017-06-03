@@ -3,7 +3,7 @@ set -e
 
 #setup plugins
 if [ ! -d ~/.vim ];then
-  git clone https://github.com/jsdevel/vim-bootstrap.git ~/.vim
+  git clone git@github.com:jsdevel/vim-bootstrap.git ~/.vim
 fi
 
 #Prevent cd from changing the directory
