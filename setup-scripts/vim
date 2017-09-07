@@ -26,7 +26,9 @@ ln -s ~/.vim/.vimrc ~/.vimrc
 
 vim +PluginInstall +qall
 
+pushd ~/.vim
 git submodule update --init
 pushd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer --gocode-completer --tern-completer
+popd
 popd
