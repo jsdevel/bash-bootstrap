@@ -218,4 +218,4 @@ function bash_bootstrap_ps1_extras() {
 
 export PS1="\e[0;33m\W\e[0m\[\033[32m\]\$(bash_bootstrap_ps1_extras)\[\033[00m\] $ "
 export PS2=""
-export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+export PROMPT_COMMAND='echo -ne "\033]0;${USER} ${PWD} `history 1 | cut -c 8-`\007"'
