@@ -1,15 +1,21 @@
 #!/bin/bash
 
-al=$HOME/.bash_aliases
-rc=$HOME/.bashrc
-ternProject=$HOME/.tern-project
+al="$HOME/.bash_aliases"
+terminatorConfig="$HOME/.config/terminator/config"
+rc="$HOME/.bashrc"
+ternProject="$HOME/.tern-project"
 
-if [ -f $al ] && [ ! -h $al ];then
-  mv $al ${al}.backup;
+if [ -f "$al" ] && [ ! -h "$al" ];then
+  mv "$al" "${al}.backup";
 fi
 
-if [ ! -h $al ];then
-  ln -s "`rPath .bash_aliases`" $al
+if [ ! -h "$al" ];then
+  ln -s "`rPath .bash_aliases`" "$al"
+fi
+
+if [ ! -h "$terminatorConfig" ];then
+  rm -f "$terminatorConfig"
+  ln -s "`rPath .terminator_config`" "$terminatorConfig"
 fi
 
 if [ ! -h "$ternProject" ];then
