@@ -20,6 +20,7 @@ function upvimboot() {
 alias r='ranger'
 
 #shortcuts for editing bash-bootstrap files
+alias editermconf='vim ~/.config/terminator/config'
 alias edivimrc='vim ~/.vimrc'
 alias edisshconfig='vim ~/.ssh/config'
 alias edibashl='vim ~/.bash_aliases;. ~/.bash_aliases'

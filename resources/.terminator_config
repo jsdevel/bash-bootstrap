@@ -14,5 +14,6 @@
 [plugins]
 [profiles]
   [[default]]
+    background_color = "#212121"
     cursor_color = "#aaaaaa"
     scrollbar_position = hidden
