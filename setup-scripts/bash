@@ -1,7 +1,9 @@
 #!/bin/bash
 
 al="$HOME/.bash_aliases"
-terminatorConfig="$HOME/.config/terminator/config"
+configDir="$HOME/.config"
+terminatorConfigDir="$configDir/terminator"
+terminatorConfig="$terminatorConfigDir/config"
 rc="$HOME/.bashrc"
 ternProject="$HOME/.tern-project"
 
@@ -15,6 +17,7 @@ fi
 
 if [ ! -h "$terminatorConfig" ];then
   rm -f "$terminatorConfig"
+  mkdir -p "$terminatorConfigDir"
   ln -s "`rPath .terminator_config`" "$terminatorConfig"
 fi
 
