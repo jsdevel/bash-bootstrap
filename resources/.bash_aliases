@@ -8,12 +8,14 @@ alias civimboot='(cd ~/.vim && git add --all && git commit && git push origin ma
 alias civimboot='(cd ~/.vim && git add --all && git commit && git push origin master);'
 
 function upvimboot() {
-  cd ~/.vim
+  pushd ~/.vim > /dev/null
   git pull
   vim +PluginUpdate +qall
   git submodule update --init
-  cd ~/.vim/bundle/YouCompleteMe
+  pushd ~/.vim/bundle/YouCompleteMe > /dev/null
   ./install.py --clang-completer --tern-completer
+  popd > /dev/null
+  popd > /dev/null
 }
 
 #shortcut for ranger
