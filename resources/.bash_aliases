@@ -37,6 +37,7 @@ alias viewsyslog='sudo vim /var/log/messages'
 alias grepnode='grep -r \
   --exclude-dir=node_modules \
   --exclude-dir=.git \
+  --exclude-dir=build \
   --exclude-dir=.sonar \
   --exclude-dir=coverage \
   --exclude-dir=dist'
