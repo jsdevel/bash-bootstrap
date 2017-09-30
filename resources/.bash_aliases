@@ -34,6 +34,7 @@ alias edisnip='vim ~/.vim/bundle/snipmate.vim/snippets'
 alias viewsyslog='sudo vim /var/log/messages'
 
 #shortcuts for working with node projects
+alias nv='node --version'
 alias grepnode='grep -r \
   --exclude-dir=node_modules \
   --exclude-dir=.git \
