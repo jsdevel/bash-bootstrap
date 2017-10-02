@@ -38,6 +38,7 @@ alias rmnm='rm -rf node_modules'
 alias nv='node --version'
 alias grepnode='grep -r \
   --exclude-dir=node_modules \
+  --exclude-dir=.cache-loader \
   --exclude-dir=.git \
   --exclude-dir=build \
   --exclude-dir=.sonar \
