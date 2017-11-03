@@ -4,6 +4,18 @@ alias cibashboot='(cd ~/.bash-bootstrap && git add --all && git commit && git pu
 alias upbashboot='(cd ~/.bash-bootstrap && git pull && ./setup.bash && . ~/.bashrc && echo "Updated bash-bootstrap!")'
 alias civimboot='(cd ~/.vim && git add --all && git commit && git push origin master);'
 
+function cd() {
+  builtin cd "$@"
+  if [[ -f ".nvmrc" ]]; then
+    local node_version="`node --version`"
+    local nvm_version="`cat .nvmrc`"
+
+    if [[ "$node_version" != "$nvm_version" ]]; then
+      nvm use > /dev/null 2>&1
+    fi
+  fi
+}
+
 #vim-bootstrap
 alias civimboot='(cd ~/.vim && git add --all && git commit && git push origin master);'
 
@@ -36,6 +48,13 @@ alias viewsyslog='sudo vim /var/log/messages'
 #shortcuts for working with node projects
 alias rmnm='rm -rf node_modules'
 alias nv='node --version'
+function nvs() {
+  local lines="3"
+  if [[ -n "$1" ]]; then
+    lines="$1"
+  fi
+  grep -A "$lines" '"scripts"' package.json
+}
 alias grepnode='grep -r \
   --exclude-dir=node_modules \
   --exclude-dir=.cache-loader \
@@ -210,6 +229,8 @@ function orphan() {
 #
 # Outputs " @ hostnam" if hostname doesn't contain "local".
 # Outputs " (branch-name)" when PWD is in a git repo.
+# Also runs `nvm use` if `.nvmrc` exists and `node --version` isn't equal to it's
+# contents.
 function bash_bootstrap_ps1_extras() {
   local hostName="`hostname`"
   local branch="`git rev-parse --abbrev-ref HEAD 2> /dev/null`"
