@@ -6,14 +6,7 @@ alias civimboot='(cd ~/.vim && git add --all && git commit && git push origin ma
 
 function cd() {
   builtin cd "$@"
-  if [[ -f ".nvmrc" ]]; then
-    local node_version="`node --version`"
-    local nvm_version="`cat .nvmrc`"
-
-    if [[ "$node_version" != "$nvm_version" ]]; then
-      nvm use > /dev/null
-    fi
-  fi
+  nvu
 }
 
 #vim-bootstrap
@@ -54,6 +47,16 @@ function nvs() {
     lines="$1"
   fi
   grep -A "$lines" '"scripts"' package.json
+}
+function nvu() {
+  if [[ -f ".nvmrc" ]]; then
+    local node_version="`node --version`"
+    local nvm_version="`cat .nvmrc`"
+
+    if [[ "$node_version" != "$nvm_version" ]]; then
+      nvm use > /dev/null
+    fi
+  fi
 }
 alias grepnode='grep -r \
   --exclude-dir=node_modules \
