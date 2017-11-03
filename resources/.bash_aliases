@@ -11,7 +11,7 @@ function cd() {
     local nvm_version="`cat .nvmrc`"
 
     if [[ "$node_version" != "$nvm_version" ]]; then
-      nvm use > /dev/null 2>&1
+      nvm use > /dev/null
     fi
   fi
 }
