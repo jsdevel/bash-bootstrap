@@ -39,7 +39,7 @@ alias edisnip='vim ~/.vim/bundle/snipmate.vim/snippets'
 alias viewsyslog='sudo vim /var/log/messages'
 
 #shortcuts for working with node projects
-alias rmnm='rm -rf node_modules'
+alias nmr='rm -rf node_modules'
 alias nv='node --version'
 function nvs() {
   local lines="3"
