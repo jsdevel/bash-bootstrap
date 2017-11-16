@@ -98,7 +98,13 @@ alias f='fg'
 alias gb='git branch'
 function gbd() {
   local branch="`git rev-parse --abbrev-ref HEAD`"
-  git checkout master
+
+  case "$1" in
+    d)local target="develop";;
+    *)local target="master";;
+  esac
+
+  git checkout "$target"
 
   if [[ "$branch" != 'master' ]]; then
     git branch -D "$branch"
