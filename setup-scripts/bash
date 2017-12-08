@@ -2,6 +2,8 @@
 
 al="$HOME/.bash_aliases"
 configDir="$HOME/.config"
+openboxConfigDir="$configDir/openbox"
+lxdeConfig="$openboxConfigDir/lxde-rc.xml"
 terminatorConfigDir="$configDir/terminator"
 terminatorConfig="$terminatorConfigDir/config"
 rc="$HOME/.bashrc"
@@ -13,6 +15,11 @@ fi
 
 if [ ! -h "$al" ];then
   ln -s "`rPath .bash_aliases`" "$al"
+fi
+
+if [ ! -h "$lxdeConfig" ]; then
+  rm -f "$lxdeConfig"
+  ln -s "`rPath lxde-rc.xml`" "$lxdeConfig"
 fi
 
 if [ ! -h "$terminatorConfig" ];then
