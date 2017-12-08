@@ -21,6 +21,7 @@ if [ ! -h "$lxdeConfig" ]; then
   rm -f "$lxdeConfig"
   mkdir -p "$openboxConfigDir"
   ln -s "`rPath lxde-rc.xml`" "$lxdeConfig"
+  openbox --reconfigure > /dev/null 2>&1 || true
 fi
 
 if [ ! -h "$terminatorConfig" ];then
