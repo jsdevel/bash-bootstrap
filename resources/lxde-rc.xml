@@ -195,6 +195,9 @@
     </keybind>
     <keybind key="A-S-4">
       <action name="Execute">
+        <command>mkdir -p ~/screenshots</command>
+      </action>
+      <action name="Execute">
         <command>scrot -s -e "mv \$f ~/screenshots/`zenity --entry --text='Image Name:'`.png"</command>
       </action>
     </keybind>
