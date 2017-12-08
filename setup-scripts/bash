@@ -19,6 +19,7 @@ fi
 
 if [ ! -h "$lxdeConfig" ]; then
   rm -f "$lxdeConfig"
+  mkdir -p "$openboxConfigDir"
   ln -s "`rPath lxde-rc.xml`" "$lxdeConfig"
 fi
 
