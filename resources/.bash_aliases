@@ -41,6 +41,7 @@ alias viewsyslog='sudo vim /var/log/messages'
 
 #shortcuts for working with node projects
 alias nmr='rm -rf node_modules'
+alias npv='grep version package.json'
 alias nv='node --version'
 function nvs() {
   local lines="3"
