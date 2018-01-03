@@ -259,17 +259,3 @@ function bash_bootstrap_ps1_extras() {
 export PS1="\e[0;33m\W\e[0m\[\033[32m\]\$(bash_bootstrap_ps1_extras)\[\033[00m\] $ "
 export PS2=""
 export PROMPT_COMMAND='echo -ne "\033]0;${USER} ${PWD} `history 1 | cut -c 8-`\007"'
-
-# Eternal bash history. Taken from https://stackoverflow.com/a/19533853
-# ---------------------
-# Undocumented feature which sets the size to "unlimited".
-# http://stackoverflow.com/questions/9457233/unlimited-bash-history
-export HISTFILESIZE=
-export HISTSIZE=
-export HISTTIMEFORMAT="[%F %T] "
-# Change the file location because certain bash sessions truncate .bash_history file upon close.
-# http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
-export HISTFILE=~/.bash_eternal_history
-# Force prompt to write history after every command.
-# http://superuser.com/questions/20900/bash-history-loss
-export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
