@@ -1,6 +1,7 @@
 [global_config]
   borderless = True
   putty_paste_style = True
+  copy_on_selection = True
   title_hide_sizetext = True
   title_inactive_bg_color = ""
   title_inactive_fg_color = ""
