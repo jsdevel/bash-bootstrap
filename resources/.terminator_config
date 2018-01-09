@@ -1,11 +1,10 @@
 [global_config]
   borderless = True
-  copy_on_selection = True
   putty_paste_style = True
   title_hide_sizetext = True
-  title_transmit_bg_color = #000000
-  title_inactive_fg_color = #fafafa
-  title_inactive_bg_color = #000000
+  title_inactive_bg_color = ""
+  title_inactive_fg_color = ""
+  title_transmit_bg_color = ""
 [keybindings]
 [layouts]
   [[default]]
