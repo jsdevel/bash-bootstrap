@@ -9,6 +9,11 @@ function cd() {
   nvu
 }
 
+function cmkdir() {
+  mkdir -p "$1"
+  cd "$1"
+}
+
 #vim-bootstrap
 alias civimboot='(cd ~/.vim && git add --all && git commit && git push origin master);'
 
