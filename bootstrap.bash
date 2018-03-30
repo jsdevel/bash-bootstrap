@@ -1,5 +1,13 @@
 #!/bin/bash
 
+if [ -r ~/.bashrc ]; then
+   source ~/.bashrc
+else
+  cat > ~/.bashrc <<~
+#!/bin/bash
+~
+fi
+
 if [ -d ~/.vim ];then
   read -p 'This will remove your ~/.vim directory.  Proceed?[y/n]' dec
   case $dec in
