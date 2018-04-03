@@ -73,6 +73,9 @@ alias grepnode='grep -r \
   --exclude-dir=.sonar \
   --exclude-dir=coverage \
   --exclude-dir=dist'
+alias grepgo='grep -r \
+  --exclude-dir=vendor \
+  --exclude-dir=.git'
 
 #react-native shortcuts
 alias ra='react-native'
