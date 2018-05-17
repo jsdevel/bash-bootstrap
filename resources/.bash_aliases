@@ -48,6 +48,7 @@ alias viewsyslog='sudo vim /var/log/messages'
 alias nmr='rm -rf node_modules'
 alias npv='grep version package.json'
 alias nv='node --version'
+
 function nvs() {
   local lines="3"
   if [[ -n "$1" ]]; then
@@ -55,6 +56,7 @@ function nvs() {
   fi
   grep -A "$lines" '"scripts"' package.json
 }
+
 function nvu() {
   if [[ -f ".nvmrc" ]]; then
     local node_version="`node --version`"
@@ -65,6 +67,7 @@ function nvu() {
     fi
   fi
 }
+
 alias grepnode='grep -r \
   --exclude-dir=node_modules \
   --exclude-dir=.cache-loader \
@@ -264,6 +267,7 @@ function bash_bootstrap_ps1_extras() {
   fi
 }
 
+nvu
 export PS1="\e[0;33m\W\e[0m\[\033[32m\]\$(bash_bootstrap_ps1_extras)\[\033[00m\] $ "
 export PS2=""
 export PROMPT_COMMAND='echo -ne "\033]0;${USER} ${PWD} `history 1 | cut -c 8-`\007"'
