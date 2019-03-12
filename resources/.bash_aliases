@@ -181,7 +181,17 @@ alias dstop='docker stop -t 0'
 # git aliases
 alias gammend='git commit --no-verify --amend --no-edit'
 alias gc='git commit'
-alias gco='git checkout'
+function  gco() {
+  PS3="Which branch would you like to checkout?: "
+  select BRANCH in `git branch --list | sed 's|\*||'`;do
+    if [[ -z "$BRANCH" ]]; then
+      echo "Invalid selection!  Please make your selection by typing the corresponding branch number..." >&2
+      continue
+    fi
+    git checkout $BRANCH
+    break
+  done
+}
 alias gca='git add --all :/;git commit --no-verify'
 alias gfe='git fetch'
 alias gfpu='git push -f origin HEAD;git push origin --tags'
