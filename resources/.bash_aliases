@@ -112,18 +112,26 @@ alias gb='git branch'
 function gbd() {
   local branch="`git rev-parse --abbrev-ref HEAD`"
 
-  case "$1" in
-    d)local target="develop";;
-    *)local target="master";;
-  esac
+  PS3="Which branch would you like to delete?: "
+  select BRANCH in `git branch --list | sed 's|\*||'`;do
+    if [[ -z "$BRANCH" ]]; then
+      echo "Invalid selection!  Please make your selection by typing the corresponding branch number..." >&2
+      continue
+    fi
 
-  git checkout "$target"
+    if [[ "$BRANCH" = 'master' ]]; then
+      echo "Unable to delete the master branch.  Try another selection"
+      continue
+    fi
 
-  if [[ "$branch" != 'master' ]]; then
-    git branch -D "$branch"
-    git pull
+    if [[ "$BRANCH" = "$branch" ]]; then
+      echo "checking out master first"
+      git checkout master
+    fi
+
+    git branch -D "$BRANCH"
     git remote prune origin
-  fi
+  done
 }
 
 # FF Merge a PR branch into develop and delete it
