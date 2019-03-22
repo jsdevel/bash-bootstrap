@@ -131,6 +131,7 @@ function gbd() {
 
     git branch -D "$BRANCH"
     git remote prune origin
+    break
   done
 }
 
