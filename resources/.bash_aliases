@@ -70,6 +70,7 @@ function nvu() {
 
 alias grepnode='grep -r \
   --exclude-dir=node_modules \
+  --exclude-dir=target \
   --exclude-dir=.cache-loader \
   --exclude-dir=.git \
   --exclude-dir=build \
