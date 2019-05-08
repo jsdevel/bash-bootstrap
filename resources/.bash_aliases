@@ -203,6 +203,7 @@ function  gco() {
   done
 }
 alias gca='git add --all :/;git commit --no-verify'
+alias gd='git diff'
 alias gfe='git fetch'
 alias gfpu='git push -f origin HEAD;git push origin --tags'
 alias ggraph='git log --graph --oneline --all'
