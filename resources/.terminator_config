@@ -21,3 +21,4 @@
     background_color = "#050505"
     cursor_color = "#aaaaaa"
     scrollbar_position = hidden
+    scrollback_lines = 10000
