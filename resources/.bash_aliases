@@ -199,6 +199,7 @@ function  gco() {
       continue
     fi
     git checkout $BRANCH
+    git pull
     break
   done
 }
