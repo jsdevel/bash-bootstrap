@@ -228,7 +228,7 @@
     </keybind>
     <keybind key="XF86AudioPlay">
       <action name="Execute">
-        <command>bash -c 'google-chrome "http://youtube-playlist-randomizer.valami.info/playlist3.php?auth=yes&amp;pl%5B%5D=PLbs-3cMzygerWQe9pUjA8BLPGuFYG3Zvf"'</command>
+        <command>bash -c 'google-chrome "https://music.youtube.com/"'</command>
       </action>
     </keybind>
     <keybind key="W-l">

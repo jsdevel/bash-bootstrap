@@ -128,6 +128,7 @@ function gbd() {
     if [[ "$BRANCH" = "$branch" ]]; then
       echo "checking out master first"
       git checkout master
+      git pull
     fi
 
     git branch -D "$BRANCH"
