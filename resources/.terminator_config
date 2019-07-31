@@ -18,6 +18,7 @@
 [profiles]
   [[default]]
     background_color = "#050505"
+    copy_on_selection = True
     cursor_color = "#aaaaaa"
     scrollback_lines = 10000
     scrollbar_position = hidden
