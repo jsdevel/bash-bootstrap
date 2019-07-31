@@ -108,8 +108,24 @@ alias j='jobs'
 alias b='bg'
 alias f='fg'
 
+# docker alises
+
+# enforce a tag name
+alias dbuild='docker build --no-cache -t'
+alias dims='docker images'
+alias dps='docker ps'
+alias dpsa='docker ps -a'
+alias drmi='docker rmi'
+alias drmir='docker rmi -f `docker images | grep "^<none>" | sed "s|^<none>\s*<none>\s*||" | sed "s| \s*.*$||"`'
+# Remove all containers with a randomly assigned name I.E. a name with "_" in it
+# This is useful if you avoid "_" when naming your containers with the "--name" option
+alias drmr='docker rm --force `docker ps -a --format="{{ .Names }}" | grep "_"`'
+alias ddrun='docker run -d'
+alias drun='docker run'
+alias dstop='docker stop -t 0'
+
+
 #git shortcuts
-alias gb='git branch'
 function gbd() {
   local branch="`git rev-parse --abbrev-ref HEAD`"
 
@@ -136,6 +152,20 @@ function gbd() {
     break
   done
 }
+
+function  gco() {
+  PS3="Which branch would you like to checkout?: "
+  select BRANCH in `git branch --list | sed 's|\*||'`;do
+    if [[ -z "$BRANCH" ]]; then
+      echo "Invalid selection!  Please make your selection by typing the corresponding branch number..." >&2
+      continue
+    fi
+    git checkout $BRANCH
+    git pull
+    break
+  done
+}
+
 
 # FF Merge a PR branch into develop and delete it
 function gprbdoned() {
@@ -173,37 +203,9 @@ function gprbdonem() {
   fi
 }
 
-# docker alises
-
-# enforce a tag name
-alias dbuild='docker build --no-cache -t'
-alias dims='docker images'
-alias dps='docker ps'
-alias dpsa='docker ps -a'
-alias drmi='docker rmi'
-alias drmir='docker rmi -f `docker images | grep "^<none>" | sed "s|^<none>\s*<none>\s*||" | sed "s| \s*.*$||"`'
-# Remove all containers with a randomly assigned name I.E. a name with "_" in it
-# This is useful if you avoid "_" when naming your containers with the "--name" option
-alias drmr='docker rm --force `docker ps -a --format="{{ .Names }}" | grep "_"`'
-alias ddrun='docker run -d'
-alias drun='docker run'
-alias dstop='docker stop -t 0'
-
-# git aliases
+alias gb='git branch'
 alias gammend='git commit --no-verify --amend --no-edit'
 alias gc='git commit'
-function  gco() {
-  PS3="Which branch would you like to checkout?: "
-  select BRANCH in `git branch --list | sed 's|\*||'`;do
-    if [[ -z "$BRANCH" ]]; then
-      echo "Invalid selection!  Please make your selection by typing the corresponding branch number..." >&2
-      continue
-    fi
-    git checkout $BRANCH
-    git pull
-    break
-  done
-}
 alias gca='git add --all :/;git commit --no-verify'
 alias gd='git diff'
 alias gfe='git fetch'
