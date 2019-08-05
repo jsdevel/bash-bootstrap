@@ -142,13 +142,16 @@ function gbd() {
     fi
 
     if [[ "$BRANCH" = "$branch" ]]; then
-      echo "checking out master first"
+      echo "Temporarily checking out master to delete your current branch..."
       git checkout master
-      git pull
     fi
 
     git branch -D "$BRANCH"
     git remote prune origin
+
+    if [[ "$BRANCH" = "$branch" ]]; then
+      gco
+    fi
     break
   done
 }
