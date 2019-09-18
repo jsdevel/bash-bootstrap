@@ -50,11 +50,7 @@ alias npv='grep version package.json'
 alias nv='node --version'
 
 function nvs() {
-  local lines="3"
-  if [[ -n "$1" ]]; then
-    lines="$1"
-  fi
-  grep -A "$lines" '"scripts"' package.json
+  jq '.scripts' package.json
 }
 
 function nvu() {
