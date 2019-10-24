@@ -72,6 +72,10 @@ alias grepnode='grep -r \
   --exclude-dir=build \
   --exclude-dir=.sonar \
   --exclude-dir=coverage \
+  --exclude=*.bundle.js \
+  --exclude=*package-lock.json \
+  --exclude=*_dll.js \
+  --exclude-dir=*_dll \
   --exclude-dir=dist'
 alias grepgo='grep -r \
   --exclude-dir=vendor \
@@ -126,40 +130,36 @@ function gbd() {
   local branch="`git rev-parse --abbrev-ref HEAD`"
 
   PS3="Which branch would you like to delete?: "
-  select BRANCH in `git branch --list | sed 's|\*||'`;do
-    if [[ -z "$BRANCH" ]]; then
+  select GBD_BRANCH in `git branch --list | sed 's|\*||'`;do
+    if [[ -z "$GBD_BRANCH" ]]; then
       echo "Invalid selection!  Please make your selection by typing the corresponding branch number..." >&2
       continue
     fi
 
-    if [[ "$BRANCH" = 'master' ]]; then
+    if [[ "$GBD_BRANCH" = 'master' ]]; then
       echo "Unable to delete the master branch.  Try another selection"
       continue
     fi
 
-    if [[ "$BRANCH" = "$branch" ]]; then
-      echo "Temporarily checking out master to delete your current branch..."
-      git checkout master
-    fi
-
-    git branch -D "$BRANCH"
-    git remote prune origin
-
-    if [[ "$BRANCH" = "$branch" ]]; then
+    if [[ "$GBD_BRANCH" = "$branch" ]]; then
       gco
     fi
+
+    git branch -D "$GBD_BRANCH"
+    git remote prune origin
+
     break
   done
 }
 
 function  gco() {
   PS3="Which branch would you like to checkout?: "
-  select BRANCH in `git branch --list | sed 's|\*||'`;do
-    if [[ -z "$BRANCH" ]]; then
+  select GCO_BRANCH in `git branch --list | sed 's|\*||'`;do
+    if [[ -z "$GCO_BRANCH" ]]; then
       echo "Invalid selection!  Please make your selection by typing the corresponding branch number..." >&2
       continue
     fi
-    git checkout $BRANCH
+    git checkout $GCO_BRANCH
     git pull
     break
   done
