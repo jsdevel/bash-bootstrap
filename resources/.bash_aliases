@@ -142,7 +142,7 @@ function gbd() {
     fi
 
     if [[ "$GBD_BRANCH" = "$branch" ]]; then
-      gco
+      gco "$GBD_BRANCH"
     fi
 
     git branch -D "$GBD_BRANCH"
@@ -154,7 +154,14 @@ function gbd() {
 
 function  gco() {
   PS3="Which branch would you like to checkout?: "
-  select GCO_BRANCH in `git branch --list | sed 's|\*||'`;do
+  list="`git branch --list | sed 's|\*||'`"
+  branch_to_delete="$1"
+
+  if [[ -n "$branch_to_delete" ]]; then
+    list="`echo "$list" | grep -v "$branch_to_delete"`"
+  fi
+
+  select GCO_BRANCH in $list;do
     if [[ -z "$GCO_BRANCH" ]]; then
       echo "Invalid selection!  Please make your selection by typing the corresponding branch number..." >&2
       continue
