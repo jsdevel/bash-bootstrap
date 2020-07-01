@@ -124,6 +124,11 @@ alias ddrun='docker run -d'
 alias drun='docker run'
 alias dstop='docker stop -t 0'
 
+function bb_g_handle_remote_sleep() {
+    if [[ -n "$BB_GIT_THROTTLE_SECONDS" ]]; then
+      sleep "$BB_GIT_THROTTLE_SECONDS"
+    fi
+}
 
 #git shortcuts
 function gbd() {
@@ -143,10 +148,13 @@ function gbd() {
 
     if [[ "$GBD_BRANCH" = "$branch" ]]; then
       gco "$GBD_BRANCH"
+      bb_g_handle_remote_sleep
     fi
 
     git branch -D "$GBD_BRANCH"
+    bb_g_handle_remote_sleep
     git remote prune origin
+    bb_g_handle_remote_sleep
 
     break
   done
@@ -167,7 +175,9 @@ function  gco() {
       continue
     fi
     git checkout $GCO_BRANCH
+    bb_g_handle_remote_sleep
     git pull
+    bb_g_handle_remote_sleep
     break
   done
 }
