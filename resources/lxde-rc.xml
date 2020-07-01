@@ -228,7 +228,7 @@
     </keybind>
     <keybind key="XF86AudioPlay">
       <action name="Execute">
-        <command>bash -c 'google-chrome "https://music.youtube.com/"'</command>
+        <command>bash -c 'google-chrome --new-window "https://music.youtube.com/"'</command>
       </action>
     </keybind>
     <keybind key="W-l">
