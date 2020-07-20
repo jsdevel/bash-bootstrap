@@ -169,17 +169,27 @@ function  gco() {
     list="`echo "$list" | grep -v "$branch_to_delete"`"
   fi
 
-  select GCO_BRANCH in $list;do
-    if [[ -z "$GCO_BRANCH" ]]; then
-      echo "Invalid selection!  Please make your selection by typing the corresponding branch number..." >&2
-      continue
-    fi
-    git checkout $GCO_BRANCH
+  branch_to_checkout=""
+  if [[ -n "$branch_to_delete" && "`echo -e "$list" | wc -l`" == "1"  ]]; then
+    branch_to_checkout="`echo "$list" | xargs`"
+  else
+    select GCO_BRANCH in $list;do
+      if [[ -z "$GCO_BRANCH" ]]; then
+        echo "Invalid selection!  Please make your selection by typing the corresponding branch number..." >&2
+        continue
+      fi
+      branch_to_checkout="$GCO_BRANCH"
+      break
+    done
+  fi
+
+  if [[ -n "$branch_to_checkout" ]]; then
+    echo "Checking out $branch_to_checkout..."
+    git checkout "$branch_to_checkout"
     bb_g_handle_remote_sleep
     git pull
     bb_g_handle_remote_sleep
-    break
-  done
+  fi
 }
 
 
