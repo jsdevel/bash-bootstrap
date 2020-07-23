@@ -33,6 +33,7 @@ alias r='ranger'
 
 #shortcuts for editing bash-bootstrap files
 alias editermconf='vim ~/.config/terminator/config'
+alias ediglobalgitignore='vim ~/.bash-bootstrap/resources/.global_gitignore'
 alias edilxderx='vim ~/.config/openbox/lxde-rc.xml;openbox --reconfigure'
 alias edivimrc='vim ~/.vimrc'
 alias edisshconfig='vim ~/.ssh/config'
