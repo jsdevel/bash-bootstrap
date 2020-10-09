@@ -132,6 +132,35 @@ function bb_g_handle_remote_sleep() {
 }
 
 #git shortcuts
+function garchive() {
+  local branch="`git rev-parse --abbrev-ref HEAD`"
+
+  PS3="Which branch would you like to archive?: "
+  select ARCHIVE_BRANCH in `git branch --list | sed 's|\*||'`;do
+    if [[ -z "$ARCHIVE_BRANCH" ]]; then
+      echo "Invalid selection!  Please make your selection by typing the corresponding branch number..." >&2
+      continue
+    fi
+
+    if [[ "$ARCHIVE_BRANCH" = 'master' ]]; then
+      echo "Unable to archive the master branch.  Try another selection"
+      continue
+    fi
+
+    if [[ "$ARCHIVE_BRANCH" = "$branch" ]]; then
+      gco "$ARCHIVE_BRANCH"
+      bb_g_handle_remote_sleep
+    fi
+
+    git tag "archive/$ARCHIVE_BRANCH" "$ARCHIVE_BRANCH"
+    git branch -D "$ARCHIVE_BRANCH"
+    bb_g_handle_remote_sleep
+    git remote prune origin
+    bb_g_handle_remote_sleep
+    break
+  done
+}
+
 function gbd() {
   local branch="`git rev-parse --abbrev-ref HEAD`"
 
@@ -252,7 +281,7 @@ alias gshp='git stash pop'
 alias gnewb='git checkout -b'
 alias gdnewb='git checkout develop && gnewb'
 alias gnew='git checkout master && gnewb'
-alias gshowa='git log --pretty=format:"%an" | sort | uniq -c | sort -n'
+alias gshowa='git log --pretty=format:"%an" --no-merges | sort | uniq -c | sort -n'
 alias gcl='grh && git clean -fd'
 alias gbm='git checkout master'
 

@@ -201,6 +201,16 @@
         <command>scrot -s -e "mv \$f ~/screenshots/`zenity --entry --text='Image Name:'`.png"</command>
       </action>
     </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute">
+        <command>xbacklight -dec 5</command>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute">
+        <command>xbacklight -inc 5</command>
+      </action>
+    </keybind>
     <keybind key="XF86AudioMute">
       <action name="Execute">
         <command>bash -c 'pactl set-sink-mute `pactl list sinks short | grep RUNNING | cut -f 1` toggle'</command>
