@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPT_DIR="`dirname "$0"`";
+SCRIPT_DIR="$HOME/.bash-bootstrap";
 BIN_DIR="$SCRIPT_DIR/bin"
 SETUP_SCRIPTS_DIR="$SCRIPT_DIR/setup-scripts"
 RESOURCES_DIR="$SCRIPT_DIR/resources"
