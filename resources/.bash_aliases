@@ -22,9 +22,9 @@ function upvimboot() {
   git pull
   vim +PluginUpdate +qall
   git submodule update --init
-  pushd ~/.vim/bundle/YouCompleteMe > /dev/null
-  ./install.py --clang-completer --tern-completer
-  popd > /dev/null
+  # pushd ~/.vim/bundle/YouCompleteMe > /dev/null
+  # ./install.py --clang-completer --tern-completer
+  # popd > /dev/null
   popd > /dev/null
 }
 
@@ -71,16 +71,27 @@ alias grepnode='grep -r \
   --exclude-dir=.cache-loader \
   --exclude-dir=.git \
   --exclude-dir=build \
+  --exclude-dir=chunks \
   --exclude-dir=.sonar \
   --exclude-dir=coverage \
   --exclude=*.bundle.js \
+  --exclude=*.lock \
+  --exclude=*.svg \
+  --exclude=*.class \
   --exclude=*package-lock.json \
   --exclude=*_dll.js \
   --exclude-dir=*_dll \
+  --exclude-dir=.next \
   --exclude-dir=dist'
 alias grepgo='grep -r \
   --exclude-dir=vendor \
   --exclude-dir=.git'
+
+function greptag() {
+  tag="$1"
+  shift 1
+  grepnode -P "<$tag\\b" $@
+}
 
 #react-native shortcuts
 alias ra='react-native'
@@ -284,6 +295,8 @@ alias gnew='git checkout master && gnewb'
 alias gshowa='git log --pretty=format:"%an" --no-merges | sort | uniq -c | sort -n'
 alias gcl='grh && git clean -fd'
 alias gbm='git checkout master'
+alias gpick='git cherry-pick'
+alias gbaseod='git pull --rebase origin develop'
 
 #npm shortcuts
 alias npu='npm publish'

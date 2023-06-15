@@ -1,10 +1,20 @@
 #!/bin/bash
 
-if [[ -d ~/.ssh ]]; then
-    if [ ! -f ~/.ssh/.agent.sock ] || [ ! -S "`cat ~/.ssh/.agent.sock`" ] || [ -z "`ps -e | grep 'ssh-agent'`" ];then
-       eval `ssh-agent` > /dev/null;
-       echo "$SSH_AUTH_SOCK" > ~/.ssh/.agent.sock;
-    else
-       export SSH_AUTH_SOCK="`cat ~/.ssh/.agent.sock`";
-    fi
+sockFile=~/.ssh/.agent.sock
+
+function startAgent() {
+  if [ ! -f $sockFile ]; then
+    ssh-agent -s > $sockFile
+  fi
+  . $sockFile > /dev/null
+}
+
+if [ -d ~/.ssh ]; then
+  startAgent
+
+  if [ ! -S "$SSH_AUTH_SOCK" ]; then
+    rm -f $sockFile
+  fi
+
+  startAgent
 fi
